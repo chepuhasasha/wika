@@ -1,6 +1,6 @@
 <template lang='pug'>
-Flex.test_item(col width='100%')
-  .test_item_title {{ num + 1 }}. {{ task.title }}
+Flex.test_item(col width='100%' :class='{complite: status}')
+  .test_item_title {{ status ? '✔️' : '' }} {{ num + 1 }}. {{ task.title }}
   .test_item_desc {{ task.description }}
   button(@click='open') Приступить
 </template>
@@ -21,6 +21,20 @@ export default {
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
   },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    status() {
+      if (this.user.complite.tests.includes(this.task.test)) {
+        return true;
+      }
+      if (this.user.complite.articles.includes(this.task.article)) {
+        return true;
+      }
+      return false;
+    },
+  },
   methods: {
     open() {
       if (this.task.article) {
@@ -35,6 +49,9 @@ export default {
 </script>
 
 <style lang='less'>
+.complite {
+  border: 2px solid rgb(62, 197, 0) !important;
+}
 .test_item {
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.4);
