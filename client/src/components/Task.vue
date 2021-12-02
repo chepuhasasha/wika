@@ -26,13 +26,16 @@ export default {
       return this.$store.state.user;
     },
     status() {
-      if (this.user.complite.tests.includes(this.task.test)) {
-        return true;
-      }
+      let result = false;
+      this.user.complite.tests.forEach((test) => {
+        if (test.id === this.task.test) {
+          result = true;
+        }
+      });
       if (this.user.complite.articles.includes(this.task.article)) {
-        return true;
+        result = true;
       }
-      return false;
+      return result;
     },
   },
   methods: {

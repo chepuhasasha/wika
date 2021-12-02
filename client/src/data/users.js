@@ -8,7 +8,9 @@ export default {
       courses: [1, 2],
       complite: {
         articles: [1],
-        tests: [1],
+        tests: [
+          { id: 1, bal: 5 },
+        ],
       },
       medals: ['👋', '👩‍🚀', '🦸‍♂️'],
       contacts: 'sashachepuha@gmail.com',

@@ -19,7 +19,7 @@ Flex(
       button(@click='openProject') к проекту
       button(v-if='isAdmin' @click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
       button(v-if='edit' @click='save' title='Сохранить') 💾
-      p(v-if='isComplite') ✔️
+      p(v-if='isComplite') {{ bal }}🌟
     Flex.minicard(col gap='5px')
       .minicard_name 🙋‍♂️ {{ test.owner.name  }}
       span {{ test.owner.specialization  }}
@@ -82,14 +82,19 @@ export default {
       combo: 0,
       dead: 0,
       complite: 0,
+      bal: null,
     };
   },
   computed: {
     isComplite() {
-      if (this.$store.state.user.complite.tests.includes(this.test.id)) {
-        return true;
-      }
-      return false;
+      let result = false;
+      this.$store.state.user.complite.tests.forEach((test) => {
+        if (test.id === this.test.id) {
+          this.bal = test.bal;
+          result = true;
+        }
+      });
+      return result;
     },
     isAdmin() {
       if (this.$store.state.user.role === 'admin') {
@@ -162,7 +167,10 @@ export default {
         this.dead = this.test.life;
       }
       if (this.complite === this.test.slides.length) {
-        this.$store.dispatch('testComplite', this.test.id);
+        this.$store.dispatch('testComplite', {
+          id: this.test.id,
+          bal: this.test.life - this.dead,
+        });
       }
     },
   },

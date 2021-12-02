@@ -21,8 +21,8 @@ export default new Vuex.Store({
     READ_ARTICLE(state, id) {
       state.user.complite.articles.push(id);
     },
-    TEST_COMPLITE(state, id) {
-      state.user.complite.tests.push(id);
+    TEST_COMPLITE(state, result) {
+      state.user.complite.tests.push(result);
     },
   },
   actions: {
@@ -32,8 +32,8 @@ export default new Vuex.Store({
     readArticle({ commit }, id) {
       commit('READ_ARTICLE', id);
     },
-    testComplite({ commit }, id) {
-      commit('TEST_COMPLITE', id);
+    testComplite({ commit }, result) {
+      commit('TEST_COMPLITE', result);
     },
   },
   modules: {
