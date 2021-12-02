@@ -8,6 +8,7 @@ export default {
       courses: [1, 2],
       tasks: [1],
       medals: ['👋', '👩‍🚀', '🦸‍♂️'],
+      contacts: 'sashachepuha@gmail.com',
     },
   ],
 };
