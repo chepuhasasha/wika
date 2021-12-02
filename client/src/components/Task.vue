@@ -2,7 +2,7 @@
 Flex.test_item(col width='100%' :class='{complite: status}')
   .test_item_title {{ status ? '✔️' : '' }} {{ num + 1 }}. {{ task.title }}
   .test_item_desc {{ task.description }}
-  button(@click='open') Приступить
+  button(v-if='!status' @click='open') Приступить
 </template>
 
 <script>
