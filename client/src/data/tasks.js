@@ -7,8 +7,8 @@ export default {
       status: 'в работе',
       start: '',
       finish: '',
-      articles: [],
-      tests: [],
+      article: 1,
+      test: null,
     },
     {
       id: 2,
@@ -17,8 +17,8 @@ export default {
       status: 'в работе',
       start: '',
       finish: '',
-      articles: [],
-      tests: [],
+      article: null,
+      test: 1,
     },
     {
       id: 3,
@@ -27,8 +27,8 @@ export default {
       status: 'в работе',
       start: '',
       finish: '',
-      articles: [],
-      tests: [],
+      article: 2,
+      tests: null,
     },
   ],
 };

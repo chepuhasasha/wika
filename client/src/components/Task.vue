@@ -2,7 +2,7 @@
 Flex.test_item(col width='100%')
   .test_item_title {{ num + 1 }}. {{ task.title }}
   .test_item_desc {{ task.description }}
-  button(@click='openTest(task.id)') Приступить
+  button(@click='open') Приступить
 </template>
 
 <script>
@@ -22,8 +22,13 @@ export default {
     Flex: () => import('@/components/Utils/Flex.vue'),
   },
   methods: {
-    openTest(id) {
-      this.$router.push(`/test/${id}`);
+    open() {
+      if (this.task.article) {
+        this.$router.push(`/article/${this.task.article}`);
+      }
+      if (this.task.test) {
+        this.$router.push(`/test/${this.task.test}`);
+      }
     },
   },
 };
