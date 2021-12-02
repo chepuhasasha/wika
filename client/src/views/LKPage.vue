@@ -57,19 +57,10 @@ Flex(
       h3 {{ cours.title }}
       p {{ cours.description }}
       button(@click='openCourse(cours.id)') Открыть
-  //- Flex.card(
-  //-   v-if='courses'
-  //-   col
-  //-   width='100%'
-  //-   padding='20px'
-  //-   gap='0'
-  //- )
-  //-   h2 Задачи
 </template>
 
 <script>
 import coursesData from '@/data/courses';
-import tasksData from '@/data/tasks';
 
 export default {
   name: 'UserPage',
@@ -79,7 +70,6 @@ export default {
   data() {
     return {
       courses: null,
-      tasks: null,
     };
   },
   computed: {
@@ -94,9 +84,7 @@ export default {
     getData() {
       /* eslint-disable */
       const courses = coursesData.courses.filter(item => this.getUser.courses.includes(item.id));
-      const tasks = tasksData.tasks.filter(item => this.getUser.tasks.includes(item.id));
       this.courses = courses
-      this.tasks = tasks
     },
     openCourse(id) {
       this.$router.push(`/course/${id}`);
