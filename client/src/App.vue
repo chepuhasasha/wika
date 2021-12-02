@@ -36,7 +36,7 @@ export default {
       courses: [1, 2],
       complite: {
         articles: [1],
-        tests: [1],
+        tests: [],
       },
       medals: ['👋', '👩‍🚀', '🦸‍♂️'],
       contacts: 'sashachepuha@gmail.com',
@@ -62,14 +62,11 @@ export default {
 .nav {
   max-width: 1000px;
   margin: 0 auto;
-  // border-radius: 0 0 20px 20px;
-  // box-shadow: 0 -10px 50px -25px black;
   border: 1px solid rgba(255,255,255,0.4);
   background: var(--bg_500);
 }
 #app {
   max-height: 100vh;
-  // gap: 20px;
   overflow: auto;
   display: flex;
   flex-direction: column;

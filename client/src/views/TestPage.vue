@@ -161,6 +161,9 @@ export default {
       if (this.dead >= this.test.life) {
         this.dead = this.test.life;
       }
+      if (this.complite === this.test.slides.length) {
+        this.$store.dispatch('testComplite', this.test.id);
+      }
     },
   },
   mounted() {
