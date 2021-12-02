@@ -34,8 +34,6 @@ Flex(
     padding='20px'
     gap='10px'
   )
-    h2 Задачи
-    //- pre {{ tasks }}
     Task(
       v-for='(task, i) in tasks'
       :key='i'
