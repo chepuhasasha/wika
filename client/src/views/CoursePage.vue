@@ -16,18 +16,32 @@ Flex(
     gap='20px'
     wrap
   )
-    h1 {{ cours.title }}
     Flex.minicard(gap='5px' wrap)
       button(@click='openProject') к проекту
+  Flex.card(
+    v-if='cours'
+    width='100%'
+    padding='20px'
+    justify='space-between'
+    gap='20px'
+    wrap
+  )
+    h1 {{ cours.title }}
   Flex.card(
     v-if='tasks'
     col
     width='100%'
     padding='20px'
-    gap='0'
+    gap='10px'
   )
     h2 Задачи
-    pre {{ tasks }}
+    //- pre {{ tasks }}
+    Task(
+      v-for='(task, i) in tasks'
+      :key='i'
+      :task='task'
+      :num='i'
+    )
 </template>
 
 <script>
@@ -38,6 +52,7 @@ export default {
   name: 'CoursePage',
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
+    Task: () => import('@/components/Task.vue'),
   },
   data() {
     return {
@@ -62,7 +77,7 @@ export default {
       this.tasks = tasks
     },
     openProject() {
-      this.$router.push(`/project/${this.course.project}`);
+      this.$router.push(`/project/${this.cours.project}`);
     },
   },
   mounted() {
