@@ -37,7 +37,7 @@ export default {
       complite: {
         articles: [1],
         tests: [
-          { id: 1, bal: 5 },
+          // { id: 1, bal: 5 },
         ],
       },
       medals: ['👋', '👩‍🚀', '🦸‍♂️'],
