@@ -15,11 +15,12 @@ Flex(
     justify='space-between'
     wrap
   )
-    Flex.minicard(gap='5px' wrap)
+    Flex.minicard(gap='5px' wrap align='center')
       button(@click='openProject') к проекту
       button(v-if='isAdmin' @click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
       button(v-if='edit' @click='save' title='Сохранить') 💾
-      button(v-if='edit' @click='save') Загрузить .md
+      button(v-if='!isRead' @click='read') Прочитано
+      p(v-if='isRead') ✔️
     Flex.minicard(col gap='5px')
       .minicard_name 🙋‍♂️ {{ article.owner.name  }}
       span {{ article.owner.specialization  }}
@@ -63,6 +64,15 @@ export default {
     $route: 'getData',
   },
   computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    isRead() {
+      if (this.user.complite.articles.includes(this.article.id)) {
+        return true;
+      }
+      return false;
+    },
     elements() {
       return this.article ? this.article.elements : [];
     },
@@ -97,6 +107,9 @@ export default {
     },
     save() {
     },
+    read() {
+      this.$store.dispatch('readArticle', this.article.id);
+    }
   },
   mounted() {
     this.getData()
