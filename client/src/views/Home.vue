@@ -58,7 +58,7 @@ export default {
   width: 80%;
   max-width: 80%;
   padding: 10px;
-  border-radius: 20px 4px 20px 20px;
+  border-radius: 20px;
   letter-spacing: 0px;
   font-weight: 300;
   font-size: 14px;
