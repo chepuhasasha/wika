@@ -52,9 +52,6 @@ export default {
 </script>
 
 <style lang='less'>
-.complite {
-  border: 2px solid rgb(62, 197, 0) !important;
-}
 .test_item {
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.4);
