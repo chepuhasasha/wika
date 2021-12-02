@@ -30,10 +30,16 @@ Flex(
         padding='0'
         gap='20px'
       )
-        .medal(
-          v-for='(medal, i) in getUser.medals'
-          :key='i'
-        ) {{ medal }}
+    Flex.minicard(
+      v-if='getUser'
+      height='100%'
+      padding='10px'
+      gap='0'
+    )
+      .medal(
+        v-for='(medal, i) in getUser.medals'
+        :key='i'
+      ) {{ medal }}
   Flex.card(
     v-if='courses'
     col
