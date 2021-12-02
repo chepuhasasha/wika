@@ -1,4 +1,4 @@
-import {BaseController} from "../common/base.controller.js";
+import { BaseController } from "../..//common/base.controller.js";
 
 export class ArticleController extends BaseController{
   constructor() {

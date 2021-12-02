@@ -4,9 +4,21 @@ import pino from "pino-http";
 
 
 export class App {
-  constructor(articleControllerInstance) {
+  constructor(
+    userControllerInstance,
+    projectControllerInstance,
+    courseControllerInstance,
+    articleControllerInstance,
+    taskControllerInstance,
+    testControllerInstance,
+  ) {
     this.app = express();
+    this.userController = userControllerInstance;
+    this.projectController = projectControllerInstance;
+    this.courseController = courseControllerInstance;
     this.articleController = articleControllerInstance;
+    this.taskController = taskControllerInstance;
+    this.testController = testControllerInstance;
   }
 
   useMiddleware() {
@@ -15,7 +27,12 @@ export class App {
   }
 
   useRoutes() {
+    this.app.use("/user", this.userController.router);
+    this.app.use("/project", this.projectController.router);
+    this.app.use("/course", this.courseController.router);
     this.app.use("/article", this.articleController.router);
+    this.app.use("/task", this.taskController.router);
+    this.app.use("/test", this.testController.router);
   }
 
   init() {
