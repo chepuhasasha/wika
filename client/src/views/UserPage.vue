@@ -36,13 +36,6 @@ Flex(
           v-for='(medal, i) in user.medals'
           :key='i'
         ) {{ medal }}
-  //- Flex.card(
-  //-   v-if='courses'
-  //-   col
-  //-   width='100%'
-  //-   padding='20px'
-  //-   gap='10px'
-  //- )
 </template>
 
 <script>

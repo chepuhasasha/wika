@@ -15,10 +15,11 @@ Flex(
     justify='space-between'
     wrap
   )
-    Flex.minicard(gap='5px' wrap)
+    Flex.minicard(gap='5px' wrap align='center')
       button(@click='openProject') к проекту
       button(v-if='isAdmin' @click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
       button(v-if='edit' @click='save' title='Сохранить') 💾
+      p(v-if='isComplite') ✔️
     Flex.minicard(col gap='5px')
       .minicard_name 🙋‍♂️ {{ test.owner.name  }}
       span {{ test.owner.specialization  }}
@@ -30,8 +31,9 @@ Flex(
     maxHeight='100%'
     margin='0 auto'
   )
-    h1 {{ test.title }}
+    h1 {{ isComplite ? '✔️' : ''}} {{ test.title }}
     Flex(
+      v-if='!isComplite'
       width='100%'
       padding='0'
       align='center'
@@ -44,6 +46,7 @@ Flex(
       Flex.minicard(v-if='getComplite' col gap='5px') {{ getComplite }}
         span Результат
   Flex.card(
+    v-if='!isComplite'
     col gap='20px'
     width='100%'
     padding='20px'
@@ -82,6 +85,12 @@ export default {
     };
   },
   computed: {
+    isComplite() {
+      if (this.$store.state.user.complite.tests.includes(this.test.id)) {
+        return true;
+      }
+      return false;
+    },
     isAdmin() {
       if (this.$store.state.user.role === 'admin') {
         return true;
