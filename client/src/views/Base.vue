@@ -1,7 +1,7 @@
 <template lang='pug'>
 Flex.base(col width='100%' padding='40px 20px')
   h1 База знаний
-  button(@click='makeProject') Создать проект 👶
+  button(v-if='isAdmin' @click='makeProject') Создать проект 👶
   input(placeholder='Название проекта' v-model='search')
   Flex.projects(col padding='0' width='100%')
     Project(
@@ -29,6 +29,12 @@ export default {
     Flex: () => import('@/components/Utils/Flex.vue'),
   },
   computed: {
+    isAdmin() {
+      if (this.$store.state.user.role === 'admin') {
+        return true;
+      }
+      return false;
+    },
     getProjects() {
       /* eslint-disable */
       console.log('update data');
