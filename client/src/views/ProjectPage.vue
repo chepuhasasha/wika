@@ -7,17 +7,17 @@ Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
       @click='flag = "articles"'
       :class='{active: flag === "articles"}'
     ) Статьи {{ getArticles.length }}
-      button(@click='makeArticle') Создать ➕
+      button(v-if='isAdmin' @click='makeArticle') Создать ➕
     span.project_page_nav(
       @click='flag = "tests"'
       :class='{active: flag === "tests"}'
     ) Тесты {{ getTests.length }}
-      button(@click='makeTest') Создать ➕
+      button(v-if='isAdmin' @click='makeTest') Создать ➕
     span.project_page_nav(
       @click='flag = "courses"'
       :class='{active: flag === "courses"}'
     ) Курсы {{ getCourses.length }}
-      button(@click='makeTest') Создать ➕
+      button(v-if='isAdmin' @click='makeTest') Создать ➕
   input(placeholder='Начните вводить' v-model='search')
   Article(
     v-if='flag === "articles"'
@@ -64,6 +64,12 @@ export default {
     Course: () => import('@/components/Course.vue'),
   },
   computed: {
+    isAdmin() {
+      if (this.$store.state.user.role === 'admin') {
+        return true;
+      }
+      return false;
+    },
     /* eslint-disable */
     getProject() {
       return this.project;

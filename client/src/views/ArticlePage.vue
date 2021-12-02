@@ -17,7 +17,7 @@ Flex(
   )
     Flex.minicard(gap='5px' wrap)
       button(@click='openProject') к проекту
-      button(@click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
+      button(v-if='isAdmin' @click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
       button(v-if='edit' @click='save' title='Сохранить') 💾
       button(v-if='edit' @click='save') Загрузить .md
     Flex.minicard(col gap='5px')
@@ -65,6 +65,12 @@ export default {
   computed: {
     elements() {
       return this.article ? this.article.elements : [];
+    },
+    isAdmin() {
+      if (this.$store.state.user.role === 'admin') {
+        return true;
+      }
+      return false;
     },
   },
   methods: {

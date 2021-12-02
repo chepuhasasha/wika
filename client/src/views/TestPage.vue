@@ -17,7 +17,7 @@ Flex(
   )
     Flex.minicard(gap='5px' wrap)
       button(@click='openProject') к проекту
-      button(@click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
+      button(v-if='isAdmin' @click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
       button(v-if='edit' @click='save' title='Сохранить') 💾
     Flex.minicard(col gap='5px')
       .minicard_name 🙋‍♂️ {{ test.owner.name  }}
@@ -82,6 +82,12 @@ export default {
     };
   },
   computed: {
+    isAdmin() {
+      if (this.$store.state.user.role === 'admin') {
+        return true;
+      }
+      return false;
+    },
     getLife() {
       if (this.dead === this.test.life) {
         return 'YOU ARE DIE!';
