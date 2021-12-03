@@ -49,7 +49,7 @@ Flex(
   )
     h2 Курсы
     Course(
-      v-for='course in courses'
+      v-for='course in getCourses'
       :key='course.id'
       :course='course'
     )
@@ -72,6 +72,10 @@ export default {
   computed: {
     getUser() {
       return this.$store.state.user;
+    },
+    getCourses() {
+      /* eslint-disable */
+      return this.courses.sort((a, b) => a.priority - b.priority);
     },
   },
   watch: {

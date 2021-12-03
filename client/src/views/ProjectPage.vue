@@ -90,7 +90,7 @@ export default {
       if (this.search) {
         return this.courses.filter(item => item.title.toUpperCase().includes(this.search.toUpperCase()));
       };
-      return this.courses;
+      return this.courses.sort((a, b) => a.priority - b.priority);
     },
   },
   methods: {
