@@ -4,18 +4,18 @@ Flex(col width='100%' padding='0' :style='getStyle' v-if='element')
     :is='getTag(tag)'
     v-bind='config'
   ) {{ content }}
-  Flex(v-if='edit' col width='100%' gap='5px')
-    span Тип:
-    select(v-model='tag')
-      option(
-        v-for='(el, i) in getTagList'
-        :key='i'
-      ) {{ el }}
-    span Контент:
-    textarea(v-model='content')
-    span(v-if='config') Пораметры:
-    Props(v-if='config' :tag='tag' :config='config')
-    button(@click='deleteEl' title='Удалить') 🗑️
+  //- Flex(v-if='edit' col width='100%' gap='5px')
+  //-   span Тип:
+  //-   select(v-model='tag')
+  //-     option(
+  //-       v-for='(el, i) in getTagList'
+  //-       :key='i'
+  //-     ) {{ el }}
+  //-   span Контент:
+  //-   textarea(v-model='content')
+  //-   span(v-if='config') Пораметры:
+  //-   Props(v-if='config' :tag='tag' :config='config')
+  //-   button(@click='deleteEl' title='Удалить') 🗑️
 </template>
 
 <script>

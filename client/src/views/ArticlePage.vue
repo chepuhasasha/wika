@@ -25,6 +25,7 @@ Flex(
     //-   .minicard_name 🙋‍♂️ {{ article.owner.name  }}
     //-   span {{ article.owner.specialization  }}
   Flex.card(
+    v-if='article.elements'
     col gap='10px'
     width='100%'
     padding='20px'
@@ -33,16 +34,36 @@ Flex(
     margin='0 auto'
   )
     h1 {{ article.title }}
-    Element(
+
+    Flex(
       v-for='(el, i) in elements'
       :key='i'
-      :tag='el.type'
-      :config='el.props'
-      :content='el.content'
-      :edit='edit'
-      @update='articleUpdate(el)'
-      @delete='deleteEl(el)'
+      col
+      width='100%'
+      gap='5px'
+      padding='0'
     )
+      Element(
+        :tag='el.type'
+        :config='el.props'
+        :content='el.content'
+        :edit='edit'
+        @update='articleUpdate(el)'
+        @delete='deleteEl(el)'
+      )
+      Flex(v-if='edit' col width='100%' gap='5px')
+        span Тип:
+        select(v-model='el.type')
+          option(
+            v-for='(el, i) in getTagList'
+            :key='i'
+          ) {{ el }}
+        span Контент:
+        textarea(v-model='el.content')
+        span(v-if='el.config') Пораметры:
+        Props(v-if='el.config' :tag='el.type' :config='el.config')
+        button(@click='deleteEl(el)' title='Удалить') 🗑️
+
     button(v-if='edit' @click='addEl' title='Добавить блок') add +
 </template>
 
@@ -60,12 +81,33 @@ export default {
     return {
       article: null,
       edit: false,
+      map: {
+        h1: 'h1',
+        h2: 'h2',
+        h3: 'h3',
+        h4: 'h4',
+        p: 'p',
+        span: 'span',
+        pre: 'pre',
+        // codepen: 'iframe',
+        msg: 'Message',
+        punct: 'Punct',
+        link: 'Link',
+      },
+      configMap: {
+        link: {
+          url: 'http://',
+        },
+      },
     };
   },
   watch: {
     $route: 'getData',
   },
   computed: {
+    getTagList() {
+      return Object.keys(this.map);
+    },
     getQuery() {
       return this.$route.query;
     },
@@ -109,10 +151,15 @@ export default {
       this.article.elements.splice(i, 1);
     },
     addEl() {
-      this.article.elements.push({
+      const str = JSON.stringify(this.article.elements)
+      const old = JSON.parse(str)
+      console.log(old.elements)
+      old.push({
         type: 'p',
         content: 'Текст',
       });
+      this.$delete(this.article, 'elements')
+      this.$set(this.article, 'elements', old)
     },
     save() {
       navigator.clipboard.writeText(JSON.stringify(this.article))
