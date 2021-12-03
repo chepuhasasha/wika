@@ -11,7 +11,7 @@ export default {
 
 <style lang='less' scoped>
 .msg {
-  max-width: calc(100% - 40px);
-  margin-left: 40px;
+  max-width: calc(100% - 20px);
+  margin-left: 20px;
 }
 </style>
