@@ -40,9 +40,9 @@ const testRepositoryInstance = new TestRepository(dbService, loggerService);
 // Init entity services
 const userService = new UserService(userRepositoryInstance);
 const projectService = new ProjectService(projectRepositoryInstance, articleRepositoryInstance, courseRepositoryInstance, testRepositoryInstance);
-const courseService = new CourseService(courseRepositoryInstance, projectRepositoryInstance);
+const courseService = new CourseService(courseRepositoryInstance, projectRepositoryInstance, taskRepositoryInstance);
 const articleService = new ArticleService(articleRepositoryInstance, projectRepositoryInstance);
-const taskService = new TaskService(taskRepositoryInstance);
+const taskService = new TaskService(taskRepositoryInstance, courseRepositoryInstance);
 const testService = new TestService(testRepositoryInstance, projectRepositoryInstance);
 
 

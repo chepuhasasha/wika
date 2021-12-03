@@ -9,7 +9,12 @@ export class TestService {
   }
 
   async findById(id){
-    return await this.repository.model.findByPk(id);
+    return await this.repository.model.findOne({
+      where: {
+        id
+      },
+      include: 'project'
+    });
   }
 
   async create(obj){

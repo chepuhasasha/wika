@@ -1,6 +1,11 @@
 export class TaskService {
-  constructor(taskRepositoryInstance){
+  constructor(taskRepositoryInstance, courseRepositoryInstance){
     this.repository = taskRepositoryInstance;
+    this.repository.model.belongsTo(courseRepositoryInstance.model, {
+      as: 'course',
+      targetKey: 'id',
+      foreignKey: 'id'
+    });
   }
 
   async findById(id){

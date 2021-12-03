@@ -9,11 +9,12 @@ export class ArticleService {
   }
 
   async findById(id){
-    try {
-      return await this.repository.model.findByPk(id);
-    } catch(e){
-      console.log(e)
-    }
+    return await this.repository.model.findOne({
+      where: {
+        id
+      },
+      include: 'project'
+    });
   }
 
   async create(obj){
