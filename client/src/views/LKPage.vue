@@ -33,13 +33,18 @@ Flex(
     Flex.minicard(
       v-if='getUser'
       height='100%'
+      width='auto'
       padding='10px'
-      gap='0'
+      gap='20px'
     )
-      .medal(
-        v-for='(medal, i) in getUser.medals'
-        :key='i'
-      ) {{ medal }}
+      Flex.medal(padding='0' gap='0' col) {{ getUser.bal }}🌟
+        span средний бал
+      Flex.medal(padding='0' gap='0' col) {{ getMedal.val }}
+        span {{ getMedal.text }}
+      //- .medal(
+      //-   v-for='(medal, i) in getUser.medals'
+      //-   :key='i'
+      //- ) {{ medal }}
   Flex.card(
     v-if='courses'
     col
@@ -78,6 +83,28 @@ export default {
       /* eslint-disable */
       return this.courses.sort((a, b) => a.priority - b.priority);
     },
+    getMedal() {
+      let result = {};
+      if (this.getUser.bal >= 0) {
+        result = {val: '👶', text: 'Ученик'};
+      }
+      if (this.getUser.bal >= 1) {
+        result = {val: '👶', text: 'Ученик'};
+      }
+      if (this.getUser.bal >= 2) {
+        result = {val: '👶', text: 'Ученик'};
+      }
+      if (this.getUser.bal >= 3) {
+        result = {val: '👶', text: 'Ученик'};
+      }
+      if (this.getUser.bal >= 4) {
+        result = {val: '👨‍🎓', text: 'Професор!'};
+      }
+      if (this.getUser.bal >= 5) {
+        result = {val: '🦸‍♂️', text: 'Супер герой!'};
+      }
+      return result;
+    },
   },
   watch: {
     $route: 'getData',
@@ -106,6 +133,6 @@ export default {
 
 <style lang="less" scoped>
 .medal {
-  font-size: 30px;
+  font-size: 50px;
 }
 </style>
