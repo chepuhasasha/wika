@@ -75,7 +75,7 @@ export default {
 .priority {
   &_1 {
     // background: #000 !important;
-    animation: 1s infinite alternate important ease-in-out;
+    animation: 2s infinite alternate important linear;
     border: 2px solid rgb(255, 59, 24);
     &:hover {
       border: 2px solid rgb(255, 59, 24);
@@ -89,9 +89,22 @@ export default {
     transform: translateY(0px);
   }
 
-  100% {
+  70% {
+    transform: translateY(1px);
+    box-shadow: 0 0 50px -20px red;
+  }
+  80% {
     transform: translateY(5px);
     box-shadow: 0 0 50px -40px red;
+  }
+  90% {
+    transform: translateY(1px);
+    box-shadow: 0 0 50px -20px red;
+  }
+
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 0 50px -20px red;
   }
 }
 </style>
