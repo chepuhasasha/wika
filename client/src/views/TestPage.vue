@@ -63,6 +63,7 @@ Flex(
       :slide='slide.props'
       @check='updateState'
     )
+    button(v-if='edit' @click='add') Задача +
 </template>
 
 <script>
@@ -173,6 +174,16 @@ export default {
       if (this.complite === this.test.slides.length) {
         this.setComplite()
       }
+    },
+    add() {
+      this.test.slides.push({
+        type: 'Select',
+        props: {
+          task: null,
+          comment: null,
+          variants: {},
+        },
+      });
     },
     setComplite() {
       this.$store.dispatch('setLoad', true);
