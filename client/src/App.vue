@@ -12,8 +12,6 @@
 </template>
 
 <script>
-// import axios from 'axios';
-
 export default {
   name: 'App',
   components: {
@@ -28,36 +26,6 @@ export default {
     getUser() {
       return this.$store.state.user;
     },
-  },
-  mounted() {
-    /* eslint-disable */
-    // axios
-    //   .post('url auth', {
-    //     login: this.login,
-    //     password: this.password,
-    //   })
-    //   .then((res) => {
-    //     this.$store.dispatch('setUser', res.data)
-    //   });
-
-    this.$store.dispatch('setUser', {
-      id: 1,
-      name: 'Батуков С.',
-      specialization: 'Frontend Developer',
-      // role: 'Новый сотрудник',
-      role: 'Наставник',
-      bal: 0,
-      courses: [1, 2],
-      complite: {
-        articles: [1],
-        courses: [],
-        tests: [
-          // { id: 1, bal: 5 },
-        ],
-      },
-      medals: ['👋', '👩‍🚀', '🦸‍♂️'],
-      contacts: 'sashachepuha@gmail.com',
-    });
   },
 };
 </script>
