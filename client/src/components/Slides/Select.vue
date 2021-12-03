@@ -93,13 +93,10 @@ export default {
       this.$emit('check', this.flag);
     },
     remove(key) {
-      // delete this.slide.variants[key];
       this.$delete(this.slide.variants, key);
-      console.log(key);
     },
     add() {
       this.$set(this.slide.variants, this.label, this.truth);
-      // this.slide.variants[this.label] = this.truth;
     },
   },
 };
