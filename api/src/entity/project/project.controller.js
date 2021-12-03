@@ -6,8 +6,8 @@ export class ProjectController extends BaseController{
     this.projectService = projectServiceInstance;
     this.router.get("/:id", this.getProject.bind(this));
     this.router.post("/create", this.createProject.bind(this));
-    // this.router.post("/update", this.updateProject.bind(this));
-    // this.router.post("/delete", this.deleteProject.bind(this));
+    this.router.post("/delete", this.deleteProject.bind(this));
+    this.router.post("/update", this.updateProject.bind(this));
   }
 
   async getProject({params}, res, next){
@@ -23,14 +23,22 @@ export class ProjectController extends BaseController{
     if(error ||!result){
       return this.err(res, 422, 'Не удалось обработать запрос')
     }
-    this.created(res);
+    this.created(res, result);
   };
 
-  // async updateProject(req, res, next){
-  //   this.ok(res);
-  // };
+  async deleteProject({body}, res, next){
+    const {error, result} = await this.projectService.delete(body);
+    if(error){
+      return this.err(res, 422, 'Не удалось обработать запрос')
+    }
+    this.ok(res, result);
+  };
 
-  // async deleteProject(req, res, next){
-  //   this.ok(res);
-  // };
+  async updateProject({body}, res, next){
+    const {error, result} = await this.projectService.update(body);
+     if(error){
+      return this.err(res, 422, 'Не удалось обработать запрос')
+    }
+    this.ok(res, result);
+  };
 }

@@ -15,9 +15,11 @@ export class ProjectRepository {
         allowNull: true,
       },
 
-      // courses(таблица)
-      // complite - составной
-      // medals(таблица)
+      // team
+      // articles
+      // tests
+      // courses
+      // tags
     }, {
       modelName: 'project',
       tablename: 'projects',
