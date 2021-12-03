@@ -1,28 +1,34 @@
 import { BaseController } from "../../common/base.controller.js";
 
 export class UserController extends BaseController{
-  constructor() {
+  constructor(userServiceInstance) {
     super();
+    this.userService = userServiceInstance;
     this.router.get("/:id", this.getUser.bind(this));
-    this.router.post("/create", this.createUser.bind(this));
-    this.router.post("/update", this.updateUser.bind(this));
-    this.router.post("/delete", this.deleteUser.bind(this));
+    this.router.post("/login", this.login.bind(this));
+    // this.router.post("/register", this.register.bind(this));
   }
 
-  async getUser(req, res, next){
-    let result = {'user': req.params.id};
+  async getUser({params}, res, next){
+    // const result = {
+    //   'id': params.id
+    // }
+    const result = await this.userService.getUserById(params.id);
+    if(!result){
+      return this.err(res, null, null);
+    }
     this.ok(res, result);
   };
 
-  async createUser(req, res, next){
-    this.created(res);
-  };
+  // async register({body}, res, next){
+  //   const result = this.userService.createUser(body);
+  //   if (!result){
+  //     return this.err(res, 422, 'Пользователь уже сузествует')
+  //   }
+  //   this.created(res);
+  // };
 
-  async updateUser(req, res, next){
-    this.ok(res);
-  };
-
-  async deleteUser(req, res, next){
+  async login(req, res, next){
     this.ok(res);
   };
 }
