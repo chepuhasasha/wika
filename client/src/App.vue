@@ -3,9 +3,9 @@
     .bg
       img.rotate#circle1(:src='require("@/assets/circle.svg")')
       img.rotate#circle2(:src='require("@/assets/circle2.svg")')
-    Flex.nav(width='100%' padding='20px' align='center' justify='space-between')
+    Flex.nav(width='100%' padding='20px' align='center' justify='space-between' wrap)
       a.logo(@click='open("/")') Вика
-      Flex.links(width='max-content' gap='10px' padding='0' align='center')
+      Flex.links(width='max-content' gap='10px' padding='0' align='center' wrap)
         button(v-if='getUser' @click='open("/base")') База знаний
         button(v-if='getUser' @click='open("/lk")') {{ getUser.name }}
     router-view.content
