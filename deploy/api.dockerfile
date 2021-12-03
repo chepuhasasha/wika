@@ -4,13 +4,13 @@ FROM node:lts-alpine
 WORKDIR /app
 
 # копируем оба 'package.json' и 'package-lock.json' (если есть)
-COPY ../api/package*.json ./
+COPY /docker/hakaton/api/package*.json ./
 
 # устанавливаем зависимости проекта
 RUN npm install
 
 # копируем файлы и каталоги проекта в текущий рабочий каталог (т.е. в каталог 'app')
-COPY ../api/* .
+COPY /docker/hakaton/api/* .
 
 # собираем приложение для production с минификацией
 # RUN npm run build
