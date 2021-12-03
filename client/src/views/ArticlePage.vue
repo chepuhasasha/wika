@@ -47,8 +47,7 @@ Flex(
 </template>
 
 <script>
-import data from '@/data/articles';
-import users from '@/data/users';
+import data from '@/data/articles.json';
 // import axios from 'axios';
 
 export default {
@@ -97,11 +96,10 @@ export default {
       //   .then((res) => {
       //     this.article = res.data;
       //   });
-      const article = data.articles.filter(item => +item.id === +this.$route.params.id)[0]
+      const article = data.filter(item => +item.id === +this.$route.params.id)[0]
       this.article = {
         ...article
       };
-      this.article.owner = users.users.filter(user => +user.id === +this.article.owner)[0]
     },
     openProject() {
       this.$router.push(`/project/${this.article.project}`);
@@ -117,6 +115,8 @@ export default {
       });
     },
     save() {
+      navigator.clipboard.writeText(JSON.stringify(this.article))
+      alert('Конфиг сохранен в буфер обмена')
       this.edit = false;
     },
     read() {

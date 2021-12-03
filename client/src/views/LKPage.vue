@@ -62,7 +62,7 @@ Flex(
 </template>
 
 <script>
-import coursesData from '@/data/courses';
+import data from '@/data/courses.json';
 
 export default {
   name: 'UserPage',
@@ -112,7 +112,7 @@ export default {
   methods: {
     getData() {
       /* eslint-disable */
-      const courses = coursesData.courses.filter(item => this.getUser.courses.includes(item.id));
+      const courses = data.filter(item => this.getUser.courses.includes(item.id));
       this.courses = courses
     },
     openCourse(id) {

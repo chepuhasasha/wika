@@ -2,7 +2,9 @@
 Flex.test_item(col width='100%')
   .test_item_title {{ test.title }}
   .test_item_desc {{ test.description }}
-  button(@click='openTest(test.id)') Пройти
+  Flex(padding='0' gap='5px' wrap width='100%' justify='space-between')
+    button(@click='openTest(test.id)') Пройти
+    button(v-if='isAdmin' @click='remove') Удалить
 </template>
 
 <script>
@@ -17,9 +19,23 @@ export default {
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
   },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    isAdmin() {
+      if (this.$store.state.user.role === 'Наставник') {
+        return true;
+      }
+      return false;
+    },
+  },
   methods: {
     openTest(id) {
       this.$router.push(`/test/${id}`);
+    },
+    remove() {
+      console.log(this.test.id);
     },
   },
 };

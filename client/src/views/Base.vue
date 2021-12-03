@@ -19,8 +19,8 @@ Flex.base(col width='100%' padding='40px 20px')
 </template>
 
 <script>
-import data from '@/data/projects';
-import users from '@/data/users';
+import data from '@/data/projects.json';
+import users from '@/data/users.json';
 
 export default {
   name: 'Base',
@@ -62,8 +62,8 @@ export default {
   },
   methods: {
     getData() {
-      this.users = users.users
-      this.projects = data.projects
+      this.users = users
+      this.projects = data
     },
     make() {
       console.log('make project');

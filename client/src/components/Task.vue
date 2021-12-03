@@ -1,8 +1,18 @@
 <template lang='pug'>
 Flex.test_item(col width='100%' :class='{complite: status}')
   .test_item_title {{ status ? '✔️' : '' }} {{ num + 1 }}. {{ task.title }}
+  input(v-if='edit' placeholder='Заголовок' v-model='task.title')
   .test_item_desc(v-if='!status') {{ task.description }}
-  button(v-if='!status' @click='open') Приступить
+  input(v-if='edit' placeholder='Описание' v-model='task.description')
+  button(v-if='!status && !edit' @click='open') Приступить
+  span Укажите ID статьи ИЛИ теста
+  Flex.minicard(
+    align='center'
+    width='100%'
+    v-if='edit'
+  )
+    input(v-if='edit' placeholder='Тест' v-model='task.test')
+    input(v-if='edit' placeholder='Статья' v-model='task.article')
 </template>
 
 <script>
@@ -17,6 +27,15 @@ export default {
       type: Number,
       default: null,
     },
+    edit: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      isTest: false,
+    };
   },
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),

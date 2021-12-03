@@ -63,11 +63,11 @@ Flex(
       :slide='slide.props'
       @check='updateState'
     )
+    button(v-if='edit' @click='add') Задача +
 </template>
 
 <script>
-import data from '@/data/tests';
-import users from '@/data/users';
+import data from '@/data/tests.json';
 
 export default {
   name: 'Test',
@@ -145,16 +145,18 @@ export default {
   methods: {
     getData() {
       /* eslint-disable */
-      const test = data.tests.filter(item => +item.id === +this.$route.params.id)[0]
+      const test = data.filter(item => +item.id === +this.$route.params.id)[0]
       this.test = {
         ...test
       };
-      this.test.owner = users.users.filter(user => +user.id === +this.test.owner)[0]
     },
     openProject() {
       this.$router.push(`/project/${this.test.project}`);
     },
     save() {
+      navigator.clipboard.writeText(JSON.stringify(this.test))
+      alert('Конфиг сохранен в буфер обмена')
+      this.edit = false;
     },
     updateState(e) {
       if (e) {
@@ -173,6 +175,16 @@ export default {
       if (this.complite === this.test.slides.length) {
         this.setComplite()
       }
+    },
+    add() {
+      this.test.slides.push({
+        type: 'Select',
+        props: {
+          task: null,
+          comment: null,
+          variants: {},
+        },
+      });
     },
     setComplite() {
       this.$store.dispatch('setLoad', true);
