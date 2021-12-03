@@ -85,6 +85,9 @@ export default {
     },
     getMedal() {
       let result = {};
+      if (this.getUser.bal >= 0) {
+        result = {val: '👶', text: 'Ученик'};
+      }
       if (this.getUser.bal >= 1) {
         result = {val: '👶', text: 'Ученик'};
       }
