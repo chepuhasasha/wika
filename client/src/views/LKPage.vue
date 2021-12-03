@@ -52,6 +52,7 @@ Flex(
       v-for='course in getCourses'
       :key='course.id'
       :course='course'
+      :complite='getCourseComplite(course.id)'
     )
 </template>
 
@@ -89,6 +90,12 @@ export default {
     },
     openCourse(id) {
       this.$router.push(`/course/${id}`);
+    },
+    getCourseComplite(id) {
+      if (this.getUser.complite.courses.includes(id)) {
+        return true;
+      }
+      return false;
     }
   },
   mounted() {
