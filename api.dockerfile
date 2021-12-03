@@ -15,4 +15,4 @@ COPY ./api/src ./src
 # собираем приложение для production с минификацией
 # RUN npm run build
 
-CMD [ "npm", "run" "prod" ]
+CMD [ "npm", "run", "prod" ]
