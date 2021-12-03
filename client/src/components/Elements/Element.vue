@@ -22,6 +22,7 @@ export default {
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
     Message: () => import('@/components/Elements/Message.vue'),
+    Punct: () => import('@/components/Elements/Punct.vue'),
   },
   props: {
     tag: {
@@ -54,6 +55,7 @@ export default {
         pre: 'pre',
         codepen: 'iframe',
         msg: 'Message',
+        punct: 'Punct',
       },
     };
   },
