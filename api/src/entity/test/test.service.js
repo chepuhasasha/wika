@@ -1,6 +1,11 @@
 export class TestService {
-  constructor(testRepositoryInstance){
+  constructor(testRepositoryInstance, projectRepositoryInstance){
     this.repository = testRepositoryInstance;
+    this.repository.model.belongsTo(projectRepositoryInstance.model, {
+      as: 'project',
+      targetKey: 'id',
+      foreignKey: 'id'
+    });
   }
 
   async findById(id){

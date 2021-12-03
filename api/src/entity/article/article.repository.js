@@ -28,8 +28,16 @@ export class ArticleRepository {
       elements: {
         type: sequelize.DataTypes.JSON,
         allowNull: true
-      }
-      // owner
+      },
+
+      // project: {
+      //   type: sequelize.DataTypes.INTEGER,
+      //   references: {
+      //     model: 'Projects',
+      //     key: 'id'
+      //   }
+      // }
+
       // project
     }, {
       modelName: 'article',

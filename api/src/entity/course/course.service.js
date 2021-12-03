@@ -1,6 +1,11 @@
 export class CourseService {
-  constructor(courseRepositoryInstance){
+  constructor(courseRepositoryInstance, projectRepositoryInstance){
     this.repository = courseRepositoryInstance;
+    this.repository.model.belongsTo(projectRepositoryInstance.model, {
+      as: 'project',
+      targetKey: 'id',
+      foreignKey: 'id'
+    });
   }
 
   async findById(id){
