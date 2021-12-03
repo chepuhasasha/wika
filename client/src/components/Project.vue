@@ -7,7 +7,9 @@ Flex.project(col width='100%' gap='0')
       span.project_user Статей: {{ project.articles.length }}
       span.project_user Тестов: {{ project.tests.length }}
       span.project_user Курсов: {{ project.courses.length }}
-    button.project_btn(@click='openProject(project.id)') открыть
+    Flex(padding='0' gap='5px' wrap)
+      button.project_btn(@click='openProject(project.id)') открыть
+      button(v-if='isAdmin' @click='remove') Удалить
 </template>
 
 <script>
@@ -22,9 +24,23 @@ export default {
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
   },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    isAdmin() {
+      if (this.$store.state.user.role === 'Наставник') {
+        return true;
+      }
+      return false;
+    },
+  },
   methods: {
     openProject(id) {
       this.$router.push(`/project/${id}`);
+    },
+    remove() {
+      console.log(this.project.id);
     },
   },
 };

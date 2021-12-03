@@ -2,7 +2,9 @@
 Flex.article_item(col width='100%')
   .article_item_title {{ article.title }}
   .article_item_desc {{ article.description }}
-  button(@click='openArticle(article.id)') Читать
+  Flex(padding='0' gap='5px' wrap width='100%')
+    button(@click='openArticle(article.id)') Читать
+    button(v-if='isAdmin' @click='remove') Удалить
 </template>
 
 <script>
@@ -17,11 +19,25 @@ export default {
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
   },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    isAdmin() {
+      if (this.$store.state.user.role === 'Наставник') {
+        return true;
+      }
+      return false;
+    },
+  },
   methods: {
     openArticle(id) {
       this.$router.push({
         path: `/article/${id}`,
       });
+    },
+    remove() {
+      console.log(this.article.id);
     },
   },
 };

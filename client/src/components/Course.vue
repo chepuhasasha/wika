@@ -4,7 +4,8 @@ Flex.test_item(col width='100%' :class='getClass')
   .test_item_desc {{ course.description }}
   Flex(v-if='!complite' width='100%' padding='0' justify='space-between' wrap)
     button(@click='openTest(course.id)') Открыть
-    .msg(v-if='getPriority === 1') Это СУПЕР ВАЖНО пройти 🤯 ❗️❗️❗️
+    button(v-if='isAdmin' @click='remove') Удалить
+  .msg(v-if='getPriority === 1') Это СУПЕР ВАЖНО пройти 🤯 ❗️❗️❗️
   .msg(v-if='complite') Курс пройден 😎
 </template>
 
@@ -34,6 +35,15 @@ export default {
     };
   },
   computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    isAdmin() {
+      if (this.$store.state.user.role === 'Наставник') {
+        return true;
+      }
+      return false;
+    },
     getClass() {
       if (this.complite) {
         return { complite: true };
@@ -48,6 +58,9 @@ export default {
   methods: {
     openTest(id) {
       this.$router.push(`/course/${id}`);
+    },
+    remove() {
+      console.log(this.course.id);
     },
   },
 };
