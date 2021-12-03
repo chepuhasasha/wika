@@ -1,7 +1,14 @@
 <template lang='pug'>
 Flex.base(col width='100%' padding='40px 20px')
   h1 База знаний
-  button(v-if='isAdmin' @click='makeProject') Создать проект 👶
+  button(v-if='isAdmin && !edit' @click='edit = true') Создать проект 👶
+  Flex.card(col v-if='edit' width='100%')
+    h1 Новый проект
+    input.header(placeholder='Название' v-model='name')
+    input(placeholder='Описание' v-model='desc')
+    Flex(width='100%' justify='space-between' padding='0')
+      button(@click='edit = false') Отмена ❌
+      button(@click='make') Создать ➕
   input(placeholder='Название проекта' v-model='search')
   Flex.projects(col padding='0' width='100%')
     Project(
@@ -22,6 +29,9 @@ export default {
       search: null,
       projects: [],
       users: [],
+      edit: false,
+      name: null,
+      desc: null,
     };
   },
   components: {
@@ -55,7 +65,7 @@ export default {
       this.users = users.users
       this.projects = data.projects
     },
-    makeProject() {
+    make() {
       console.log('make project');
     },
   },
