@@ -3,8 +3,8 @@ export default {
     {
       id: 2,
       priority: 2, // 1 || 2 || 3
-      title: 'Курс 2',
-      description: 'Тестовый курс',
+      title: 'Кофеварка',
+      description: 'Учимся пользоваться кофеваркой...',
       project: 1,
       tasks: [1, 2],
       tags: [],

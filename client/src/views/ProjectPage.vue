@@ -36,6 +36,7 @@ Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
     v-for='course in getCourses'
     :key='course.id'
     :course='course'
+    :complite='getCourseComplite(course.id)'
   )
 </template>
 
@@ -64,8 +65,11 @@ export default {
     Course: () => import('@/components/Course.vue'),
   },
   computed: {
+    getUser() {
+      return this.$store.state.user;
+    },
     isAdmin() {
-      if (this.$store.state.user.role === 'Наставник') {
+      if (this.getUser.role === 'Наставник') {
         return true;
       }
       return false;
@@ -100,6 +104,12 @@ export default {
     makeArticle() {
       console.log('make article');
     },
+    getCourseComplite(id) {
+      if (this.getUser.complite.courses.includes(id)) {
+        return true;
+      }
+      return false;
+    }
   },
   mounted() {
     /* eslint-disable */

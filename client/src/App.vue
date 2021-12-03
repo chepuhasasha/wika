@@ -37,7 +37,7 @@ export default {
       courses: [1, 2],
       complite: {
         articles: [1],
-        corses: [1],
+        courses: [],
         tests: [
           // { id: 1, bal: 5 },
         ],

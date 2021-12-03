@@ -2,9 +2,10 @@
 Flex.test_item(col width='100%' :class='getClass')
   .test_item_title {{ course.title }}
   .test_item_desc {{ course.description }}
-  Flex(width='100%' padding='0' justify='space-between' wrap)
+  Flex(v-if='!complite' width='100%' padding='0' justify='space-between' wrap)
     button(@click='openTest(course.id)') Открыть
     .msg(v-if='getPriority === 1') Это СУПЕР ВАЖНО пройти 🤯 ❗️❗️❗️
+  .msg(v-if='complite') Курс пройден 😎
 </template>
 
 <script>
@@ -14,6 +15,10 @@ export default {
     course: {
       type: Object,
       require: true,
+    },
+    complite: {
+      type: Boolean,
+      default: false,
     },
   },
   components: {
@@ -30,6 +35,9 @@ export default {
   },
   computed: {
     getClass() {
+      if (this.complite) {
+        return { complite: true };
+      }
       const c = this.classMap[this.getPriority];
       return { [c]: true };
     },
@@ -85,13 +93,13 @@ export default {
 }
 @keyframes important {
   0% {
-    box-shadow: 0 0 50px -20px red;
+    box-shadow: 0 0 50px -30px red;
     transform: translateY(0px);
   }
 
   70% {
     transform: translateY(1px);
-    box-shadow: 0 0 50px -20px red;
+    box-shadow: 0 0 50px -30px red;
   }
   80% {
     transform: translateY(5px);
@@ -99,12 +107,12 @@ export default {
   }
   90% {
     transform: translateY(1px);
-    box-shadow: 0 0 50px -20px red;
+    box-shadow: 0 0 50px -30px red;
   }
 
   100% {
     transform: translateY(0px);
-    box-shadow: 0 0 50px -20px red;
+    box-shadow: 0 0 50px -30px red;
   }
 }
 </style>
