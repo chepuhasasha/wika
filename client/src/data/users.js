@@ -4,7 +4,7 @@ export default {
       id: 1,
       name: 'Батуков С.',
       specialization: 'Frontend Developer',
-      role: 'Новый сотрудник',
+      role: 'Наставник', // Наставник || Новый сотрудник
       courses: [1, 2],
       complite: {
         articles: [1],

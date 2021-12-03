@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     isAdmin() {
-      if (this.$store.state.user.role === 'admin') {
+      if (this.$store.state.user.role === 'Наставник') {
         return true;
       }
       return false;

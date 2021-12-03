@@ -77,7 +77,7 @@ export default {
       return this.article ? this.article.elements : [];
     },
     isAdmin() {
-      if (this.$store.state.user.role === 'admin') {
+      if (this.$store.state.user.role === 'Наставник') {
         return true;
       }
       return false;
