@@ -6,6 +6,9 @@ WORKDIR /app
 # копируем оба 'package.json' и 'package-lock.json' (если есть)
 COPY ./api/package*.json ./
 
+# копируем .env
+COPY ./api/.env ./
+
 # устанавливаем зависимости проекта
 RUN npm install
 
