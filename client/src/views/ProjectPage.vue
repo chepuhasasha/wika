@@ -2,7 +2,7 @@
 Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
   h1 {{ getProject.title }}
   p {{ getProject.description }}
-  Flex(padding='0')
+  Flex(padding='0' wrap width='100%')
     .project_page_nav(
       @click='flag = "articles"'
       :class='{active: flag === "articles"}'
@@ -90,7 +90,7 @@ export default {
       if (this.search) {
         return this.courses.filter(item => item.title.toUpperCase().includes(this.search.toUpperCase()));
       };
-      return this.courses;
+      return this.courses.sort((a, b) => a.priority - b.priority);
     },
   },
   methods: {

@@ -1,8 +1,10 @@
 <template lang='pug'>
-Flex.test_item(col width='100%')
+Flex.test_item(col width='100%' :class='getClass')
   .test_item_title {{ course.title }}
   .test_item_desc {{ course.description }}
-  button(@click='openTest(course.id)') Открыть
+  Flex(width='100%' padding='0' justify='space-between' wrap)
+    button(@click='openTest(course.id)') Открыть
+    .msg(v-if='getPriority === 1') Это СУПЕР ВАЖНО пройти 🤯 ❗️❗️❗️
 </template>
 
 <script>
@@ -16,6 +18,24 @@ export default {
   },
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
+  },
+  data() {
+    return {
+      classMap: {
+        1: 'priority_1',
+        2: 'priority_2',
+        3: 'priority_2',
+      },
+    };
+  },
+  computed: {
+    getClass() {
+      const c = this.classMap[this.getPriority];
+      return { [c]: true };
+    },
+    getPriority() {
+      return this.course.priority;
+    },
   },
   methods: {
     openTest(id) {
@@ -49,6 +69,29 @@ export default {
   }
   &_btn {
     align-self: flex-end;
+  }
+}
+
+.priority {
+  &_1 {
+    // background: #000 !important;
+    animation: 1s infinite alternate important ease-in-out;
+    border: 2px solid rgb(255, 59, 24);
+    &:hover {
+      border: 2px solid rgb(255, 59, 24);
+    }
+    // box-shadow: 0 0 50px -20px red;
+  }
+}
+@keyframes important {
+  0% {
+    box-shadow: 0 0 50px -20px red;
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(5px);
+    box-shadow: 0 0 50px -40px red;
   }
 }
 </style>
