@@ -49,6 +49,7 @@ export default {
       //   })
       //   .then((res) => {
       //     this.$store.dispatch('setUser', res.data)
+      //     this.$router.push('lk');
       //   });
       this.$store.dispatch('setUser', {
         id: 1,

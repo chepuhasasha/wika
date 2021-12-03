@@ -119,6 +119,14 @@ export default {
     },
     read() {
       this.$store.dispatch('readArticle', this.article.id);
+      // axios
+      //   .post('url user update', this.$store.state.user)
+      //   .then((res) => {
+      //     this.$store.dispatch('setUser', res.data)
+      //     this.$router.push({
+      //       path: `/course/${this.getQuery.courseID}`,
+      //     });
+      // });
       this.$router.push({
         path: `/course/${this.getQuery.courseID}`,
       });
