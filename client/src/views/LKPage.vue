@@ -33,6 +33,7 @@ Flex(
     Flex.minicard(
       v-if='getUser'
       height='100%'
+      width='auto'
       padding='10px'
       gap='20px'
     )

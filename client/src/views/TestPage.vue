@@ -167,11 +167,14 @@ export default {
         this.dead = this.test.life;
       }
       if (this.complite === this.test.slides.length) {
-        this.$store.dispatch('testComplite', {
-          id: this.test.id,
-          bal: this.test.life - this.dead,
-        });
+        this.setComplite()
       }
+    },
+    setComplite() {
+      this.$store.dispatch('testComplite', {
+        id: this.test.id,
+        bal: this.test.life - this.dead,
+      });
     },
   },
   mounted() {
