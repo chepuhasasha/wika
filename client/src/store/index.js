@@ -13,10 +13,14 @@ export default new Vuex.Store({
     article: null,
     test: null,
     user: null,
+    load: false,
   },
   mutations: {
     SET_USER(state, value) {
       state.user = value;
+    },
+    SET_LOAD(state, value) {
+      state.load = value;
     },
     READ_ARTICLE(state, id) {
       state.user.complite.articles.push(id);
@@ -28,6 +32,9 @@ export default new Vuex.Store({
   actions: {
     setUser({ commit }, value) {
       commit('SET_USER', value);
+    },
+    setLoad({ commit }, value) {
+      commit('SET_LOAD', value);
     },
     readArticle({ commit }, id) {
       commit('READ_ARTICLE', id);

@@ -174,11 +174,20 @@ export default {
       }
     },
     setComplite() {
+      this.$store.dispatch('setLoad', true);
       this.$store.dispatch('testComplite', {
         id: this.test.id,
         bal: this.test.life - this.dead,
       });
-      console.log(this.getQuery.courseID)
+      // axios
+      //   .post('url user update', this.$store.state.user)
+      //   .then((res) => {
+      //     this.$store.dispatch('setUser', res.data);
+      //     this.$store.dispatch('setLoad', true);
+      //     this.$router.push({
+      //       path: `/course/${this.getQuery.courseID}`,
+      //     });
+      //   });
       this.$router.push({
         path: `/course/${this.getQuery.courseID}`,
       });

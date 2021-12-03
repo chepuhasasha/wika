@@ -9,6 +9,8 @@
         button(v-if='getUser' @click='open("/base")') База знаний
         button(v-if='getUser' @click='open("/lk")') {{ getUser.name }}
     router-view.content
+    .load(v-if='load')
+      .msg Секундочку, нужно сбегать на сервер... 🏃‍♀️
 </template>
 
 <script>
@@ -26,12 +28,25 @@ export default {
     getUser() {
       return this.$store.state.user;
     },
+    load() {
+      return this.$store.state.load;
+    },
   },
 };
 </script>
 
 <style lang="less">
 .user {}
+.load {
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  // background: rgba(0,0,0,0.5);
+}
 .bg {
   position: absolute;
   z-index: -1;
