@@ -121,6 +121,14 @@ export default {
       project: 1,
       elements: [
         {
+          type: 'link',
+          content:
+            'гугл⚔️',
+          props: {
+            url: 'https://google.com',
+          },
+        },
+        {
           type: 'msg',
           content:
             'Привет! Я Вика! Твой помощник в компании! Наша команда очень рада, что с нами новый герой!⚔️',

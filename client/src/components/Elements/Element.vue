@@ -13,6 +13,8 @@ Flex(col width='100%' padding='0' :style='getStyle' v-if='element')
       ) {{ el }}
     span Контент:
     textarea(v-model='content')
+    span(v-if='config') Пораметры:
+    Props(v-if='config' :tag='tag' :config='config')
     button(@click='deleteEl' title='Удалить') 🗑️
 </template>
 
@@ -23,6 +25,8 @@ export default {
     Flex: () => import('@/components/Utils/Flex.vue'),
     Message: () => import('@/components/Elements/Message.vue'),
     Punct: () => import('@/components/Elements/Punct.vue'),
+    Link: () => import('@/components/Elements/Link.vue'),
+    Props: () => import('@/components/Elements/Props.vue'),
   },
   props: {
     tag: {
@@ -56,6 +60,7 @@ export default {
         codepen: 'iframe',
         msg: 'Message',
         punct: 'Punct',
+        link: 'Link',
       },
     };
   },
