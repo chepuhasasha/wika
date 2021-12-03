@@ -8,8 +8,8 @@ Flex.home(width='100%' justify='center' height='100vh' align='center')
       |Моя цель сделать поиск нужных матерьялов удобным, а обучение приятным😇
     button(v-if='user' @click='open("base")') База знаний
     .msg(v-if='!user') Только сначала авторизируйся.
-    input.ask(v-if='!user' placeholder='Логин')
-    input.ask(v-if='!user' type='password' placeholder='Пароль')
+    input.ask(v-if='!user' placeholder='email')
+    input.ask(v-if='!user' type='password' placeholder='password')
     button(v-if='!user' @click='auth') Войти
     //- input.ask(v-on:keyup.enter="search" placeholder='Спроси у Вики' v-model='query')
 </template>
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       query: null,
-      login: null,
+      email: null,
       password: null,
     };
   },
@@ -45,7 +45,7 @@ export default {
       this.$store.dispatch('setLoad', true);
       // axios
       //   .post('url auth', {
-      //     login: this.login,
+      //     email: this.email,
       //     password: this.password,
       //   })
       //   .then((res) => {
@@ -57,8 +57,8 @@ export default {
         id: 1,
         name: 'Батуков С.',
         specialization: 'Frontend Developer',
-        // role: 'Новый сотрудник',
-        role: 'Наставник',
+        role: 'Новый сотрудник',
+        // role: 'Наставник',
         bal: 0,
         courses: [1, 2],
         complite: {

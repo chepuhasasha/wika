@@ -182,12 +182,13 @@ export default {
       // axios
       //   .post('url user update', this.$store.state.user)
       //   .then((res) => {
-      //     this.$store.dispatch('setUser', res.data);
+        //     this.$store.dispatch('setUser', res.data);
       //     this.$store.dispatch('setLoad', true);
       //     this.$router.push({
       //       path: `/course/${this.getQuery.courseID}`,
       //     });
       //   });
+      this.$store.dispatch('setLoad', false);
       this.$router.push({
         path: `/course/${this.getQuery.courseID}`,
       });

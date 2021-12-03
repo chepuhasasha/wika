@@ -5,7 +5,7 @@ export default {
       name: 'Батуков С.',
       specialization: 'Frontend Developer',
       role: 'Наставник', // Наставник || Новый сотрудник
-      courses: [1, 2],
+      courses: [10, 1],
       bal: 5,
       complite: {
         articles: [1],

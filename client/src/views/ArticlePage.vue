@@ -21,9 +21,9 @@ Flex(
       button(v-if='edit' @click='save' title='Сохранить') 💾
       button(v-if='getQuery.taskID' @click='read') Прочитано
       p(v-if='isRead') ✔️
-    Flex.minicard(col gap='5px')
-      .minicard_name 🙋‍♂️ {{ article.owner.name  }}
-      span {{ article.owner.specialization  }}
+    //- Flex.minicard(col gap='5px')
+    //-   .minicard_name 🙋‍♂️ {{ article.owner.name  }}
+    //-   span {{ article.owner.specialization  }}
   Flex.card(
     col gap='10px'
     width='100%'
@@ -129,6 +129,7 @@ export default {
       //       path: `/course/${this.getQuery.courseID}`,
       //     });
       // });
+      this.$store.dispatch('setLoad', false);
       this.$router.push({
         path: `/course/${this.getQuery.courseID}`,
       });
