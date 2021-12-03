@@ -37,15 +37,10 @@ export class App {
     this.app.use("/test", this.testController.router);
   }
 
-  init() {
+  async init() {
     this.useMiddleware();
     this.useRoutes();
-    try {
-      await this.app.db.authenticate();
-      this.app.logger.info('Connection has been established successfully.');
-    } catch (error) {
-      this.app.logger.error('Unable to connect to the database:', error);
-    }
+    await this.app.db.auth();
     return this.app;
   }
 }
