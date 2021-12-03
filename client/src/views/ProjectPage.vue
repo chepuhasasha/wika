@@ -18,8 +18,8 @@ Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
     button(v-if='isAdmin && !edit' @click='make') Создать ➕
   Flex.card(col v-if='edit' width='100%')
     h1 {{ flag }}
-    input.header(placeholder='Название' v-model='search')
-    input(placeholder='Описание' v-model='search')
+    input.header(placeholder='Название' v-model='name')
+    input(placeholder='Описание' v-model='desc')
     Flex(width='100%' justify='space-between' padding='0')
       button(@click='edit = false') Отмена ❌
       button(@click='make("course")') Создать ➕
@@ -63,6 +63,8 @@ export default {
       flag: 'Статья',
       search: null,
       edit: false,
+      name: null,
+      desc: null,
     };
   },
   components: {
