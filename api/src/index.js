@@ -47,6 +47,6 @@ const api = new App(
 
 await api.init();
 
-const apiServer = new Server(api.app, process.env.PORT || 3002);
+const apiServer = new Server(api.app, process.env.PORT || 3000);
 apiServer.start();
 console.log(process.env.DB_HOST)
