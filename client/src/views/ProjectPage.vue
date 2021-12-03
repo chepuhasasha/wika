@@ -2,22 +2,20 @@
 Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
   h1 {{ getProject.title }}
   p {{ getProject.description }}
-  Flex(padding='0' wrap width='100%')
+  Flex(padding='0' wrap width='100%' align='center')
     .project_page_nav(
       @click='flag = "articles"'
       :class='{active: flag === "articles"}'
     ) Статьи {{ getArticles.length }}
-      button(v-if='isAdmin' @click='make("article")') Создать ➕
     span.project_page_nav(
       @click='flag = "tests"'
       :class='{active: flag === "tests"}'
     ) Тесты {{ getTests.length }}
-      button(v-if='isAdmin' @click='make("test")') Создать ➕
     span.project_page_nav(
       @click='flag = "courses"'
       :class='{active: flag === "courses"}'
     ) Курсы {{ getCourses.length }}
-      button(v-if='isAdmin' @click='make("course")') Создать ➕
+    button(v-if='isAdmin' @click='make') Создать ➕
   Flex.card(col v-if='edit' width='100%')
     input.header(placeholder='Название' v-model='search')
     input(placeholder='Описание' v-model='search')
@@ -106,9 +104,9 @@ export default {
     },
   },
   methods: {
-    make(type) {
+    make() {
       this.edit = true;
-      console.log(type);
+      console.log(this.flag);
     },
 
     getCourseComplite(id) {
