@@ -5,8 +5,8 @@
       img.rotate#circle2(:src='require("@/assets/circle2.svg")')
     Flex.nav(width='100%' padding='20px' align='center' justify='space-between')
       a.logo(@click='open("/")') Вика
-      Flex.links(width='max-content' gap='20px' padding='0' align='center')
-        a(v-if='getUser' @click='open("/base")') База знаний
+      Flex.links(width='max-content' gap='10px' padding='0' align='center')
+        button(v-if='getUser' @click='open("/base")') База знаний
         button(v-if='getUser' @click='open("/lk")') {{ getUser.name }}
     router-view.content
 </template>
