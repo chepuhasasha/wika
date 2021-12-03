@@ -1,8 +1,9 @@
 <template lang='pug'>
 Flex.card(col width='100%' v-if='slide')
   h2 {{ slide.task }}
+  input(v-if='edit' placeholder='Задача' v-model='slide.task')
   Flex.minicard(
-    v-for='(item, key) in slide.variants'
+    v-for='(item, key) in getVariants'
     :key='key'
     align='center'
     v-if='!flag'
@@ -12,20 +13,30 @@ Flex.card(col width='100%' v-if='slide')
       v-model='answer[key]'
     )
     label {{ key }}
+    button(@click='remove(key)') 🗑️
   Flex.minicard(
-    v-for='(item, key) in slide.variants'
-    :key='key'
     align='center'
-    v-if='flag && item'
-  ) {{ key }}
-  Flex(width='100%' justify='space-between' padding='0')
+    width='100%'
+    v-if='edit'
+  )
+    input.checkbox(
+      type="checkbox"
+      v-model='truth'
+    )
+    input(placeholder='Вариант' v-model='label')
+  button(@click='add' v-if='edit') add +
+  //- Flex.minicard(
+  //-   v-for='(item, key) in getVariants'
+  //-   :key='key'
+  //-   align='center'
+  //-   v-if='flag && item'
+  //- ) {{ key }}
+  Flex(v-if='!edit' width='100%' justify='space-between' padding='0')
     button(@click='comment = !comment') 🤷‍♀️
     button(@click='check' v-if='!flag') Проверить
   .mssg(v-if='comment') {{ slide.comment  }}
   .mssg(v-if='flag != null') {{ flag ? 'Верно!🎉' : '💆Подумай еще...'  }}
-  Flex.card(col v-if='edit' width='100%')
-    input(placeholder='Задача' v-model='slide.task')
-    input(placeholder='Описание')
+  input(v-if='edit' placeholder='Коментарий вики' v-model='slide.comment')
 </template>
 
 <script>
@@ -49,11 +60,16 @@ export default {
       answer: {},
       flag: null,
       comment: false,
+      label: 'Вариант',
+      truth: false,
     };
   },
   computed: {
     getAnsver() {
       return this.answer;
+    },
+    getVariants() {
+      return this.slide.variants;
     },
   },
   methods: {
@@ -75,6 +91,12 @@ export default {
         this.flag = true;
       }
       this.$emit('check', this.flag);
+    },
+    remove(key) {
+      console.log(key);
+    },
+    add() {
+      this.slide.variants[this.label] = this.truth;
     },
   },
 };
