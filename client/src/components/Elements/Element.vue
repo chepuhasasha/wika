@@ -21,6 +21,7 @@ export default {
   name: 'Element',
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
+    Message: () => import('@/components/Elements/Message.vue'),
   },
   props: {
     tag: {
@@ -52,6 +53,7 @@ export default {
         span: 'span',
         pre: 'pre',
         codepen: 'iframe',
+        msg: 'Message',
       },
     };
   },
