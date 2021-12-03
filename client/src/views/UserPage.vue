@@ -39,7 +39,7 @@ Flex(
 </template>
 
 <script>
-import users from '@/data/users';
+import users from '@/data/users.json';
 
 export default {
   name: 'UserPage',
@@ -57,7 +57,7 @@ export default {
   methods: {
     getData() {
       /* eslint-disable */
-      const user = users.users.filter(item => +item.id === +this.$route.params.id)[0];
+      const user = users.filter(item => +item.id === +this.$route.params.id)[0];
       this.user = {
         ...user,
       };

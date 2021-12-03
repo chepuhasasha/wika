@@ -47,7 +47,7 @@ Flex(
 </template>
 
 <script>
-import coursesData from '@/data/courses';
+import data from '@/data/courses.json';
 
 export default {
   name: 'CoursePage',
@@ -88,7 +88,7 @@ export default {
       //   .then((res) => {
       //     this.course = res.data;
       //   });
-      const cours = coursesData.courses.filter(item => +item.id === +this.$route.params.id)[0];
+      const cours = data.filter(item => +item.id === +this.$route.params.id)[0];
       // const tasks= tasksData.tasks.filter(item => cours.tasks.includes(item.id));
       this.cours = {
         ...cours,
@@ -110,7 +110,11 @@ export default {
         course: this.cours.id,
       });
     },
-    save() {},
+    save() {
+      navigator.clipboard.writeText(JSON.stringify(this.cours))
+      alert('Конфиг сохранен в буфер обмена')
+      this.edit = false;
+    },
   },
   mounted() {
     this.getData();

@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "Батуков С.",
+    "specialization": "Frontend Developer",
+    "role": "Наставник",
+    "courses": [
+      10,
+      1
+    ],
+    "bal": 5,
+    "complite": {
+      "articles": [
+        1
+      ],
+      "courses": [
+        1
+      ],
+      "tests": [
+        {
+          "id": 1,
+          "bal": 5
+        }
+      ]
+    },
+    "medals": [
+      "👋",
+      "👩‍🚀",
+      "🦸‍♂️"
+    ],
+    "contacts": "sashachepuha@gmail.com"
+  }
+]

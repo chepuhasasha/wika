@@ -46,10 +46,10 @@ Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
 </template>
 
 <script>
-import data from '@/data/projects';
-import articles from '@/data/articles';
-import tests from '@/data/tests';
-import courses from '@/data/courses';
+import data from '@/data/projects.json';
+import articles from '@/data/articles.json';
+import tests from '@/data/tests.json';
+import courses from '@/data/courses.json';
 // import axios from 'axios';
 
 export default {
@@ -121,10 +121,10 @@ export default {
   },
   mounted() {
     /* eslint-disable */
-    this.project = data.projects.filter(project => +project.id === +this.$route.params.id)[0];
-    this.articles = articles.articles.filter(article => this.project.articles.includes(+article.id))
-    this.tests = tests.tests.filter(test => this.project.tests.includes(+test.id))
-    this.courses = courses.courses.filter(item => this.project.courses.includes(+item.id))
+    this.project = data.filter(project => +project.id === +this.$route.params.id)[0];
+    this.articles = articles.filter(article => this.project.articles.includes(+article.id))
+    this.tests = tests.filter(test => this.project.tests.includes(+test.id))
+    this.courses = courses.filter(item => this.project.courses.includes(+item.id))
   },
 };
 </script>
