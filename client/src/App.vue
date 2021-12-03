@@ -6,7 +6,7 @@
     Flex.nav(width='100%' padding='20px' align='center' justify='space-between')
       a.logo(@click='open("/")') Вика
       Flex.links(width='max-content' gap='20px' padding='0' align='center')
-        a(@click='open("/base")') База знаний
+        a(v-if='getUser' @click='open("/base")') База знаний
         button(v-if='getUser' @click='open("/lk")') {{ getUser.name }}
     router-view.content
 </template>
