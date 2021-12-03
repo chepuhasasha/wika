@@ -93,13 +93,13 @@ export default {
 }
 @keyframes important {
   0% {
-    box-shadow: 0 0 50px -20px red;
+    box-shadow: 0 0 50px -30px red;
     transform: translateY(0px);
   }
 
   70% {
     transform: translateY(1px);
-    box-shadow: 0 0 50px -20px red;
+    box-shadow: 0 0 50px -30px red;
   }
   80% {
     transform: translateY(5px);
@@ -107,12 +107,12 @@ export default {
   }
   90% {
     transform: translateY(1px);
-    box-shadow: 0 0 50px -20px red;
+    box-shadow: 0 0 50px -30px red;
   }
 
   100% {
     transform: translateY(0px);
-    box-shadow: 0 0 50px -20px red;
+    box-shadow: 0 0 50px -30px red;
   }
 }
 </style>
