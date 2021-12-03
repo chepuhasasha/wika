@@ -48,15 +48,11 @@ Flex(
     gap='10px'
   )
     h2 Курсы
-    Flex.minicard(
-      v-for='(cours, i) in courses'
-      :key='i'
-      col
-      width='100%'
+    Course(
+      v-for='course in courses'
+      :key='course.id'
+      :course='course'
     )
-      h3 {{ cours.title }}
-      p {{ cours.description }}
-      button(@click='openCourse(cours.id)') Открыть
 </template>
 
 <script>
@@ -66,6 +62,7 @@ export default {
   name: 'UserPage',
   components: {
     Flex: () => import('@/components/Utils/Flex.vue'),
+    Course: () => import('@/components/Course.vue'),
   },
   data() {
     return {
