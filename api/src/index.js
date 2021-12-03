@@ -12,9 +12,8 @@ import { ProjectController } from "./entity/project/project.controller.js";
 import { CourseRepository } from "./entity/course/course.repository.js";
 import { CourseService } from "./entity/course/course.service.js";
 import { CourseController } from "./entity/course/course.controller.js";
-
-// import { ArticleRepository } from "./entity/article/article.repository.js";
-// import { ArticleService } from "./entity/article/article.service.js";
+import { ArticleRepository } from "./entity/article/article.repository.js";
+import { ArticleService } from "./entity/article/article.service.js";
 import { ArticleController } from "./entity/article/article.controller.js";
 
 // import { TaskRepository } from "./entity/task/task.repository.js";
@@ -36,19 +35,21 @@ const dbService = new DbService(DbConfig.connection, loggerService);
 const userRepositoryInstance = new UserRepository(dbService, loggerService);
 const projectRepositoryInstance = new ProjectRepository(dbService, loggerService);
 const courseRepositoryInstance = new CourseRepository(dbService, loggerService);
+const articleRepositoryInstance = new ArticleRepository(dbService, loggerService);
 
 
 // Init entity services
 const userService = new UserService(userRepositoryInstance);
 const projectService = new ProjectService(projectRepositoryInstance);
 const courseService = new CourseService(courseRepositoryInstance);
+const articleService = new ArticleService(articleRepositoryInstance);
 
 
 // Init entiry controllers
 const userController = new UserController(userService);
 const projectController = new ProjectController(projectService);
 const courseController = new CourseController(courseService);
-const articleController = new ArticleController();
+const articleController = new ArticleController(articleService);
 const taskController = new TaskController();
 const testController = new TestController();
 
