@@ -48,6 +48,7 @@ Flex(
 <script>
 import data from '@/data/articles';
 import users from '@/data/users';
+// import axios from 'axios';
 
 export default {
   name: 'ArticlePage',
@@ -90,6 +91,11 @@ export default {
   methods: {
     getData() {
       /* eslint-disable */
+      // axios
+      //   .get('url article')
+      //   .then((res) => {
+      //     this.article = res.data;
+      //   });
       const article = data.articles.filter(item => +item.id === +this.$route.params.id)[0]
       this.article = {
         ...article
