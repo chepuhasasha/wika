@@ -5,6 +5,7 @@ import pino from "pino-http";
 
 export class App {
   constructor(
+    dbInstanse,
     userControllerInstance,
     projectControllerInstance,
     courseControllerInstance,
@@ -13,6 +14,7 @@ export class App {
     testControllerInstance,
   ) {
     this.app = express();
+    this.app.db = dbInstanse;
     this.userController = userControllerInstance;
     this.projectController = projectControllerInstance;
     this.courseController = courseControllerInstance;
@@ -38,6 +40,12 @@ export class App {
   init() {
     this.useMiddleware();
     this.useRoutes();
+    try {
+      await this.app.db.authenticate();
+      this.app.logger.info('Connection has been established successfully.');
+    } catch (error) {
+      this.app.logger.error('Unable to connect to the database:', error);
+    }
     return this.app;
   }
 }
