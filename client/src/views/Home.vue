@@ -42,6 +42,7 @@ export default {
       this.$router.push(`search/${this.query}`);
     },
     auth() {
+      this.$store.dispatch('setLoad', true);
       // axios
       //   .post('url auth', {
       //     login: this.login,
@@ -49,6 +50,7 @@ export default {
       //   })
       //   .then((res) => {
       //     this.$store.dispatch('setUser', res.data)
+      //     this.$store.dispatch('setLoad', false);
       //     this.$router.push('lk');
       //   });
       this.$store.dispatch('setUser', {
@@ -69,6 +71,7 @@ export default {
         medals: ['👋', '👩‍🚀', '🦸‍♂️'],
         contacts: 'sashachepuha@gmail.com',
       });
+      this.$store.dispatch('setLoad', false);
       this.$router.push('lk');
     },
   },
