@@ -1,0 +1,102 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="681px" height="682px" viewBox="-0.5 -0.5 681 682" content="&lt;mxfile&gt;&lt;diagram id=&quot;3TRgaSrF318-bWHtvdcV&quot; name=&quot;Страница 1&quot;&gt;5ZdNj5swEIZ/DdcVxnweG5JtD+2lOfRsgQNWDUbGWUh/fYdivmKirLSkXXVP2O/YxvPM2AwWjov2syRV/k2klFuOnbYW3luO4wRhBI9OufQK8mytZJKlWpuEI/tFtWhr9cxSWi8GKiG4YtVSTERZ0kQtNCKlaJbDToIv31qRjBrCMSHcVH+wVOVaRX40Gb5QluXDq33P7S0FGUZrV+qcpKKZSfhg4VgKofpW0caUd/gGMP285xvWcWeSluo1E5x+wgvhZ+2c3pe6DN42OVP0WJGk6zcQUgvvclVw6CFokrrqGZ9YS2HVnV6RSkXbm7tCo6+QJlQUVMkLDBlyBGs8OkMC3W0m2n6otXwGehSJjnA2Lj0xgIbGsI4EG0i+iiyj0gAjxblMO5f3Nrh9B9MGVIJgSQW5JhaEVrA43gZYgvuZAhPgCNL7MB6SM9d0PJOO663QcbegE75zOhh7CzqAx6CDnRU6o/gWOtE7p+Pa6Mm5AhRO0vx8hcGTZ1KayW/hNBzeGahDqZi6fKeVqJkSerk5OPBaLQnVSoqfNBZcSFBKUXZUT4zzK4lwlpXQTYASXG941zFk8Jn7pA0FS1N+KyTL22+LILgjQx0D7JsBiFbob5GiCN1Af6TyhYHjH4i7G5lX58O4mxVIzz0WJfDkfOXD+x+j9/y/iN6sdPZEEbhhzWz/17WO6zyw1oHuVHH/sc3+XPDhNw==&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="0" y="0" width="680" height="680" fill="#ffffff" stroke="#000000" pointer-events="all"/>
+        <rect x="540" y="70" width="110" height="250" fill="#ffffff" stroke="#000000" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 108px; height: 1px; padding-top: 195px; margin-left: 541px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Logger
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="595" y="199" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    Logger
+                </text>
+            </switch>
+        </g>
+        <ellipse cx="265" cy="305" rx="225.00000000000003" ry="225.00000000000003" fill="#ffffff" stroke="#000000" pointer-events="all"/>
+        <ellipse cx="265" cy="305" rx="160" ry="160" fill="#ffffff" stroke="#000000" pointer-events="all"/>
+        <ellipse cx="265" cy="305" rx="93.75" ry="93.75" fill="#ffffff" stroke="#000000" pointer-events="all"/>
+        <rect x="217.5" y="295" width="95" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 93px; height: 1px; padding-top: 305px; margin-left: 219px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                EntityRepository
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="265" y="309" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    EntityRepository
+                </text>
+            </switch>
+        </g>
+        <rect x="217.5" y="420" width="95" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 93px; height: 1px; padding-top: 430px; margin-left: 219px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                EntityService
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="265" y="434" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    EntityService
+                </text>
+            </switch>
+        </g>
+        <rect x="217.5" y="490" width="95" height="20" fill="none" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 93px; height: 1px; padding-top: 500px; margin-left: 219px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                EntityController
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="265" y="504" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    EntityController
+                </text>
+            </switch>
+        </g>
+        <rect x="540" y="350" width="110" height="250" fill="#ffffff" stroke="#000000" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 108px; height: 1px; padding-top: 475px; margin-left: 541px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                DataBase
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="595" y="479" fill="#000000" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    DataBase
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>

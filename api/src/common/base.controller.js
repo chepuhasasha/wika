@@ -28,8 +28,8 @@ export class BaseController {
     this._send(res, code ? code : 404, msg, null);
   };
 
-  created(res) {
-    this._send(res, 201, null, null);
+  created(res, data=null) {
+    this._send(res, 201, null, data);
   };
 
   // TODO: fix binding function

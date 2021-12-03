@@ -1,4 +1,4 @@
-import { App } from "./app/api.js";
+import { App } from "./app/api.app.js";
 import { Server } from "./server/server.js";
 import { DbConfig } from "./config/db.config.js";
 import { DbService } from "./database/db.service.js";
@@ -8,6 +8,22 @@ import { UserController } from "./entity/user/user.controller.js";
 import { ProjectRepository } from "./entity/project/project.repository.js";
 import { ProjectService } from "./entity/project/project.service.js";
 import { ProjectController } from "./entity/project/project.controller.js";
+
+// import { CourseRepository } from "./entity/course/course.repository.js";
+// import { CourseService } from "./entity/course/course.service.js";
+// import { CourseController } from "./entity/course/course.controller.js";
+
+// import { ArticleRepository } from "./entity/article/article.repository.js";
+// import { ArticleService } from "./entity/article/article.service.js";
+// import { ArticleController } from "./entity/article/article.controller.js";
+
+// import { TaskRepository } from "./entity/task/task.repository.js";
+// import { TaskService } from "./entity/task/task.service.js";
+// import { TaskController } from "./entity/task/task.controller.js";
+
+// import { TestRepository } from "./entity/test/test.repository.js";
+// import { TestRervice } from "./entity/test/test.service.js";
+// import { TestRontroller } from "./entity/test/test.controller.js";
 
 import { CourseController } from "./entity/course/course.controller.js";
 import { ArticleController } from "./entity/article/article.controller.js";
