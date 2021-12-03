@@ -28,8 +28,9 @@ Flex(
     col gap='10px'
     width='100%'
     padding='20px'
-    height='100%'
-    overflow='auto'
+    maxWidth='1000px'
+    maxHeight='100%'
+    margin='0 auto'
   )
     h1 {{ article.title }}
     Element(
