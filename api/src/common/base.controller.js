@@ -8,13 +8,9 @@ export class BaseController {
 
   _send(res, status, msg=null, data=null) {
     let resData = {
-      error: () => {
-        if (!msg){
-          return status >= 400 ? httpStatus[`${status}_MESSAGE`] : null
-        } else {
-          return msg
-        }
-      },
+      error: msg ? msg : (
+        status >= 400 ? httpStatus[`${status}_MESSAGE`] : null
+      ),
       data,
       status: {
         code: status,

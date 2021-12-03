@@ -4,15 +4,18 @@ FROM node:lts-alpine
 WORKDIR /app
 
 # копируем оба 'package.json' и 'package-lock.json' (если есть)
-COPY ../api/package*.json ./
+COPY ./api/package*.json ./
+
+# копируем .env
+COPY ./api/.env ./
 
 # устанавливаем зависимости проекта
 RUN npm install
 
 # копируем файлы и каталоги проекта в текущий рабочий каталог (т.е. в каталог 'app')
-COPY ../api/* .
+COPY ./api/src ./src
 
 # собираем приложение для production с минификацией
-RUN npm run build
+# RUN npm run build
 
-CMD [ "node", "index.js" ]
+CMD [ "npm", "run", "prod" ]
