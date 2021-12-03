@@ -24,6 +24,7 @@ export class App {
   }
 
   useMiddleware() {
+    this.app.use(express.json())
     this.app.use(pino());
     this.app.use(cors());
   }
