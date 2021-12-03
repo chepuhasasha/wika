@@ -12,6 +12,8 @@
 </template>
 
 <script>
+// import axios from 'axios';
+
 export default {
   name: 'App',
   components: {
@@ -28,6 +30,16 @@ export default {
     },
   },
   mounted() {
+    /* eslint-disable */
+    // axios
+    //   .post('url auth', {
+    //     login: this.login,
+    //     password: this.password,
+    //   })
+    //   .then((res) => {
+    //     this.$store.dispatch('setUser', res.data)
+    //   });
+
     this.$store.dispatch('setUser', {
       id: 1,
       name: 'Батуков С.',
