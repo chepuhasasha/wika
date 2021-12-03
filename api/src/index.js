@@ -7,7 +7,7 @@ import { CourseController } from "./entity/course/course.controller.js";
 import { ArticleController } from "./entity/article/article.controller.js";
 import { TaskController } from "./entity/task/task.controller.js";
 import { TestController } from "./entity/test/test.controller.js";
-
+import { LoggerService } from "./logger/logger.service.js";
 
 
 const dbConfig = {
@@ -20,7 +20,8 @@ const dbConfig = {
   }
 }
 
-const dbService = new DbService(dbConfig);
+const loggerService = new LoggerService();
+const dbService = new DbService(dbConfig, loggerService);
 const userController = new UserController();
 const projectController = new ProjectController();
 const courseController = new CourseController();
@@ -40,3 +41,4 @@ const app = new App(
 
 const apiServer = new Server(app.init(), process.env.PORT || 3002);
 apiServer.start();
+console.log(process.env.DB_HOST)
