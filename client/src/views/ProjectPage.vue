@@ -2,43 +2,42 @@
 Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
   h1 {{ getProject.title }}
   p {{ getProject.description }}
-  Flex(padding='0' wrap width='100%')
+  Flex(padding='0' wrap width='100%' align='center')
     .project_page_nav(
-      @click='flag = "articles"'
-      :class='{active: flag === "articles"}'
+      @click='flag = "Статья"'
+      :class='{active: flag === "Статья"}'
     ) Статьи {{ getArticles.length }}
-      button(v-if='isAdmin' @click='make("article")') Создать ➕
     span.project_page_nav(
-      @click='flag = "tests"'
-      :class='{active: flag === "tests"}'
+      @click='flag = "Тест"'
+      :class='{active: flag === "Тест"}'
     ) Тесты {{ getTests.length }}
-      button(v-if='isAdmin' @click='make("test")') Создать ➕
     span.project_page_nav(
-      @click='flag = "courses"'
-      :class='{active: flag === "courses"}'
+      @click='flag = "Курс"'
+      :class='{active: flag === "Курс"}'
     ) Курсы {{ getCourses.length }}
-      button(v-if='isAdmin' @click='make("course")') Создать ➕
+    button(v-if='isAdmin && !edit' @click='make') Создать ➕
   Flex.card(col v-if='edit' width='100%')
-    input.header(placeholder='Название' v-model='search')
-    input(placeholder='Описание' v-model='search')
+    h1 {{ flag }}
+    input.header(placeholder='Название' v-model='name')
+    input(placeholder='Описание' v-model='desc')
     Flex(width='100%' justify='space-between' padding='0')
       button(@click='edit = false') Отмена ❌
       button(@click='make("course")') Создать ➕
   input(placeholder='Начните вводить' v-model='search')
   Article(
-    v-if='flag === "articles"'
+    v-if='flag === "Статья"'
     v-for='article in getArticles'
     :key='article.id'
     :article='article'
   )
   Test(
-    v-if='flag === "tests"'
+    v-if='flag === "Тест"'
     v-for='test in getTests'
     :key='test.id'
     :test='test'
   )
   Course(
-    v-if='flag === "courses"'
+    v-if='flag === "Курс"'
     v-for='course in getCourses'
     :key='course.id'
     :course='course'
@@ -61,9 +60,11 @@ export default {
       articles: null,
       tests: null,
       courses: null,
-      flag: 'articles',
+      flag: 'Статья',
       search: null,
       edit: false,
+      name: null,
+      desc: null,
     };
   },
   components: {
@@ -106,9 +107,9 @@ export default {
     },
   },
   methods: {
-    make(type) {
+    make() {
       this.edit = true;
-      console.log(type);
+      console.log(this.flag);
     },
 
     getCourseComplite(id) {
