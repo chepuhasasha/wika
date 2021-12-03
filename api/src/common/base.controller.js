@@ -6,9 +6,15 @@ export class BaseController {
     this.router = Router();
   }
 
-  _send(res, status, data=null) {
+  _send(res, status, msg=null, data=null) {
     let resData = {
-      error: status >= 400 ? httpStatus[`${status}_MESSAGE`] : null,
+      error: () => {
+        if (!msg){
+          return status >= 400 ? httpStatus[`${status}_MESSAGE`] : null
+        } else {
+          return msg
+        }
+      },
       data,
       status: {
         code: status,
@@ -19,15 +25,15 @@ export class BaseController {
   };
 
   ok(res, data) {
-    this._send(res, 200, data);
+    this._send(res, 200, null, data);
   };
 
-  err(res) {
-    this._send(res, 404, null);
+  err(res, code=null, msg=null) {
+    this._send(res, code ? code : 404, msg, null);
   };
 
   created(res) {
-    this._send(res, 201, null);
+    this._send(res, 201, null, null);
   };
 
   // TODO: fix binding function

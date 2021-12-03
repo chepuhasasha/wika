@@ -8,28 +8,34 @@ import { ArticleController } from "./entity/article/article.controller.js";
 import { TaskController } from "./entity/task/task.controller.js";
 import { TestController } from "./entity/test/test.controller.js";
 import { LoggerService } from "./logger/logger.service.js";
+import { UserRepository } from "./entity/user/user.repository.js";
+import { UserService } from "./entity/user/user.service.js";
+import { DbConfig } from "./config/db.config.js";
 
 
-const dbConfig = {
-  database: process.env.DB_NAME,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  options: {
-    host: process.env.DB_HOST,
-    dialect: 'postgres'
-  }
-}
-
+// Init outer service
 const loggerService = new LoggerService();
-const dbService = new DbService(dbConfig, loggerService);
-const userController = new UserController();
+const dbService = new DbService(DbConfig.connection, loggerService);
+
+
+// Init entity repository
+const userRepositoryInstance = new UserRepository(dbService, loggerService);
+
+
+// Init entity services
+const userService = new UserService(userRepositoryInstance);
+
+
+// Init entiry controllers
+const userController = new UserController(userService);
 const projectController = new ProjectController();
 const courseController = new CourseController();
 const articleController = new ArticleController();
 const taskController = new TaskController();
 const testController = new TestController();
 
-const app = new App(
+
+const api = new App(
   dbService,
   userController,
   projectController,
@@ -39,6 +45,8 @@ const app = new App(
   testController,
 );
 
-const apiServer = new Server(app.init(), process.env.PORT || 3002);
+await api.init();
+
+const apiServer = new Server(api.app, process.env.PORT || 3002);
 apiServer.start();
 console.log(process.env.DB_HOST)

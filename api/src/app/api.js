@@ -29,18 +29,17 @@ export class App {
   }
 
   useRoutes() {
-    this.app.use("/user", this.userController.router);
-    this.app.use("/project", this.projectController.router);
-    this.app.use("/course", this.courseController.router);
-    this.app.use("/article", this.articleController.router);
-    this.app.use("/task", this.taskController.router);
-    this.app.use("/test", this.testController.router);
+    this.app.use("/api/user", this.userController.router);
+    this.app.use("/api/project", this.projectController.router);
+    this.app.use("/api/course", this.courseController.router);
+    this.app.use("/api/article", this.articleController.router);
+    this.app.use("/api/task", this.taskController.router);
+    this.app.use("/api/test", this.testController.router);
   }
 
   async init() {
     this.useMiddleware();
     this.useRoutes();
     await this.app.db.auth();
-    return this.app;
   }
 }
