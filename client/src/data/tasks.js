@@ -55,5 +55,16 @@ export default {
       test: 1,
       course: 1,
     },
+    {
+      id: 6,
+      title: 'Заполни профиль о себе🏌',
+      description: 'Необходимо прочитать статью',
+      status: 'в работе',
+      start: '',
+      finish: '',
+      article: 14,
+      test: null,
+      course: 1,
+    },
   ],
 };
