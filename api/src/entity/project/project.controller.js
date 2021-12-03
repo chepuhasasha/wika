@@ -5,7 +5,7 @@ export class ProjectController extends BaseController{
     super();
     this.projectService = projectServiceInstance;
     this.router.get("/:id", this.getProject.bind(this));
-    // this.router.post("/create", this.createProject.bind(this));
+    this.router.post("/create", this.createProject.bind(this));
     // this.router.post("/update", this.updateProject.bind(this));
     // this.router.post("/delete", this.deleteProject.bind(this));
   }
@@ -18,9 +18,13 @@ export class ProjectController extends BaseController{
     this.ok(res, result);
   };
 
-  // async createProject(req, res, next){
-  //   this.created(res);
-  // };
+  async createProject({body}, res, next){
+    const {error, result} = await this.projectService.create(body);
+    if(error ||!result){
+      return this.err(res, 422, 'Не удалось обработать запрос')
+    }
+    this.created(res);
+  };
 
   // async updateProject(req, res, next){
   //   this.ok(res);
