@@ -21,7 +21,7 @@ Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
   Flex.card(col v-if='edit' width='100%')
     input.header(placeholder='Название' v-model='search')
     input(placeholder='Описание' v-model='search')
-    Flex(width='100%' justify='space-between')
+    Flex(width='100%' justify='space-between' padding='0')
       button(@click='edit = false') Отмена ❌
       button(@click='make("course")') Создать ➕
   input(placeholder='Начните вводить' v-model='search')
