@@ -57,8 +57,8 @@ export default {
         id: 1,
         name: 'Батуков С.',
         specialization: 'Frontend Developer',
-        role: 'Новый сотрудник',
-        // role: 'Наставник',
+        // role: 'Новый сотрудник',
+        role: 'Наставник',
         bal: 0,
         courses: [1, 2],
         complite: {

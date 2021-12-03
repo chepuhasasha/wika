@@ -14,7 +14,7 @@ export default {
       priority: 1, // 1 || 2 || 3
       title: 'Первые шаги в компании',
       description: 'Тестовый курс',
-      tasks: [1, 2, 3, 4, 5],
+      tasks: [1, 2, 3, 4, 5, 6],
       project: 1,
       tags: [],
     },

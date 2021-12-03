@@ -83,7 +83,7 @@ export default {
 .priority {
   &_1 {
     // background: #000 !important;
-    animation: 2s infinite alternate important linear;
+    // animation: 5s infinite alternate important linear;
     border: 2px solid rgb(255, 59, 24) !important;
     &:hover {
       border: 2px solid rgb(255, 59, 24) !important;
@@ -91,28 +91,28 @@ export default {
     // box-shadow: 0 0 50px -20px red;
   }
 }
-@keyframes important {
-  0% {
-    box-shadow: 0 0 50px -30px red;
-    transform: translateY(0px);
-  }
+// @keyframes important {
+//   0% {
+//     box-shadow: 0 0 50px -30px red;
+//     // transform: translateY(0px);
+//   }
 
-  70% {
-    transform: translateY(1px);
-    box-shadow: 0 0 50px -30px red;
-  }
-  80% {
-    transform: translateY(5px);
-    box-shadow: 0 0 50px -40px red;
-  }
-  90% {
-    transform: translateY(1px);
-    box-shadow: 0 0 50px -30px red;
-  }
+//   70% {
+//     // transform: translateY(1px);
+//     box-shadow: 0 0 50px -30px red;
+//   }
+//   80% {
+//     // transform: translateY(5px);
+//     box-shadow: 0 0 50px -20px red;
+//   }
+//   90% {
+//     // transform: translateY(1px);
+//     box-shadow: 0 0 50px -30px red;
+//   }
 
-  100% {
-    transform: translateY(0px);
-    box-shadow: 0 0 50px -30px red;
-  }
-}
+//   100% {
+//     // transform: translateY(0px);
+//     box-shadow: 0 0 50px -30px red;
+//   }
+// }
 </style>
