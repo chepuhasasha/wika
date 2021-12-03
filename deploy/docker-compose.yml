@@ -30,8 +30,8 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB="wika"
-      - POSTGRES_USER="wika"
+      - POSTGRES_DB=wika
+      - POSTGRES_USER=wika
       - POSTGRES_PASSWORD=1234
     volumes:
       - "./data:/var/lib/postgresql/data"
