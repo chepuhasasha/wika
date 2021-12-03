@@ -34,10 +34,11 @@ export default {
       specialization: 'Frontend Developer',
       // role: 'Новый сотрудник',
       role: 'Наставник',
+      bal: 5,
       courses: [1, 2],
       complite: {
         articles: [1],
-        courses: [],
+        courses: [1],
         tests: [
           // { id: 1, bal: 5 },
         ],
