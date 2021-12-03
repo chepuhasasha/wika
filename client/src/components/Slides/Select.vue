@@ -1,6 +1,6 @@
 <template lang='pug'>
 Flex.card(col width='100%' v-if='slide')
-  p {{ slide.task }}
+  h2 {{ slide.task }}
   Flex.minicard(
     v-for='(item, key) in slide.variants'
     :key='key'
@@ -23,6 +23,9 @@ Flex.card(col width='100%' v-if='slide')
     button(@click='check' v-if='!flag') Проверить
   .mssg(v-if='comment') {{ slide.comment  }}
   .mssg(v-if='flag != null') {{ flag ? 'Верно!🎉' : '💆Подумай еще...'  }}
+  Flex.card(col v-if='edit' width='100%')
+    input(placeholder='Задача' v-model='slide.task')
+    input(placeholder='Описание')
 </template>
 
 <script>
@@ -35,6 +38,10 @@ export default {
     slide: {
       type: Object,
       default: null,
+    },
+    edit: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
