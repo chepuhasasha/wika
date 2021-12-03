@@ -57,12 +57,25 @@ export default {
         p: 'p',
         span: 'span',
         pre: 'pre',
-        codepen: 'iframe',
+        // codepen: 'iframe',
         msg: 'Message',
         punct: 'Punct',
         link: 'Link',
       },
+      configMap: {
+        link: {
+          url: 'http://',
+        },
+      },
     };
+  },
+  watch: {
+    /* eslint-disable */
+    tag: function(val) {
+      if(this.configMap[val]) {
+        this.config = this.configMap[val];
+      }
+    },
   },
   computed: {
     getStyle() {
