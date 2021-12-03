@@ -86,6 +86,9 @@ export default {
     };
   },
   computed: {
+    getQuery() {
+      return this.$route.query;
+    },
     isComplite() {
       let result = false;
       this.$store.state.user.complite.tests.forEach((test) => {
@@ -174,6 +177,10 @@ export default {
       this.$store.dispatch('testComplite', {
         id: this.test.id,
         bal: this.test.life - this.dead,
+      });
+      console.log(this.getQuery.courseID)
+      this.$router.push({
+        path: `/course/${this.getQuery.courseID}`,
       });
     },
   },

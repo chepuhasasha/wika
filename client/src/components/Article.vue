@@ -19,7 +19,9 @@ export default {
   },
   methods: {
     openArticle(id) {
-      this.$router.push(`/article/${id}`);
+      this.$router.push({
+        path: `/article/${id}`,
+      });
     },
   },
 };

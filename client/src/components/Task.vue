@@ -41,10 +41,16 @@ export default {
   methods: {
     open() {
       if (this.task.article) {
-        this.$router.push(`/article/${this.task.article}`);
+        this.$router.push({
+          path: `/article/${this.task.article}`,
+          query: { taskID: this.task.id, courseID: this.task.course },
+        });
       }
       if (this.task.test) {
-        this.$router.push(`/test/${this.task.test}`);
+        this.$router.push({
+          path: `/test/${this.task.test}`,
+          query: { taskID: this.task.id, courseID: this.task.course },
+        });
       }
     },
   },

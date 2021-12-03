@@ -19,7 +19,7 @@ Flex(
       button(@click='openProject') к проекту
       button(v-if='isAdmin' @click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
       button(v-if='edit' @click='save' title='Сохранить') 💾
-      button(v-if='!isRead' @click='read') Прочитано
+      button(v-if='getQuery.taskID' @click='read') Прочитано
       p(v-if='isRead') ✔️
     Flex.minicard(col gap='5px')
       .minicard_name 🙋‍♂️ {{ article.owner.name  }}
@@ -65,6 +65,9 @@ export default {
     $route: 'getData',
   },
   computed: {
+    getQuery() {
+      return this.$route.query;
+    },
     user() {
       return this.$store.state.user;
     },
@@ -110,6 +113,9 @@ export default {
     },
     read() {
       this.$store.dispatch('readArticle', this.article.id);
+      this.$router.push({
+        path: `/course/${this.getQuery.courseID}`,
+      });
     }
   },
   mounted() {

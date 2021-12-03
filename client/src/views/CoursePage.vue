@@ -67,7 +67,7 @@ export default {
     getData() {
       /* eslint-disable */
       const cours = coursesData.courses.filter(item => +item.id === +this.$route.params.id)[0];
-      const tasks = tasksData.tasks.filter(item => cours.tasks.includes(item.id));
+      const tasks= tasksData.tasks.filter(item => cours.tasks.includes(item.id));
 
       this.cours = {
         ...cours,

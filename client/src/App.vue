@@ -34,7 +34,7 @@ export default {
       specialization: 'Frontend Developer',
       // role: 'Новый сотрудник',
       role: 'Наставник',
-      bal: 5,
+      bal: 0,
       courses: [1, 2],
       complite: {
         articles: [1],
