@@ -6,11 +6,11 @@ Flex.home(width='100%' justify='center' height='100vh' align='center')
     .msg
       |Меня зовут Вика, я собрала для тебя статьи, тесты и курсы😉
       |Моя цель сделать поиск нужных матерьялов удобным, а обучение приятным😇
-    button(v-if='user' @click='openBase') База знаний
+    button(v-if='user' @click='open("base")') База знаний
     .msg(v-if='!user') Только сначала авторизируйся.
     input.ask(v-if='!user' placeholder='Логин')
     input.ask(v-if='!user' type='password' placeholder='Пароль')
-    button(v-if='!user' @click='openBase') Войти
+    button(v-if='!user' @click='open("lk")') Войти
     //- input.ask(v-on:keyup.enter="search" placeholder='Спроси у Вики' v-model='query')
 </template>
 
@@ -31,8 +31,8 @@ export default {
     },
   },
   methods: {
-    openBase() {
-      this.$router.push('base');
+    open(rout) {
+      this.$router.push(rout);
     },
     search() {
       this.$router.push(`search/${this.query}`);
