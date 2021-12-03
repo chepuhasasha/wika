@@ -43,6 +43,7 @@ Flex(
       @update='articleUpdate(el)'
       @delete='deleteEl(el)'
     )
+    button(v-if='edit' @click='addEl' title='Добавить блок') add +
 </template>
 
 <script>
@@ -116,6 +117,7 @@ export default {
       });
     },
     save() {
+      this.edit = false;
     },
     read() {
       this.$store.dispatch('readArticle', this.article.id);
