@@ -96,7 +96,8 @@ export default {
       console.log(key);
     },
     add() {
-      this.slide.variants[this.label] = this.truth;
+      this.$set(this.slide.variants, this.label, this.truth);
+      // this.slide.variants[this.label] = this.truth;
     },
   },
 };
