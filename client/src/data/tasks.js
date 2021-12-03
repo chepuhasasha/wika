@@ -9,6 +9,7 @@ export default {
       finish: '',
       article: 1,
       test: null,
+      course: 1,
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ export default {
       finish: '',
       article: 2,
       test: null,
+      course: 1,
     },
     {
       id: 3,
@@ -29,6 +31,7 @@ export default {
       finish: '',
       article: null,
       test: 1,
+      course: 1,
     },
   ],
 };

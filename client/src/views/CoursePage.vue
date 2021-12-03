@@ -45,6 +45,7 @@ Flex(
 <script>
 import coursesData from '@/data/courses';
 import tasksData from '@/data/tasks';
+// import axios from 'axios';
 
 export default {
   name: 'CoursePage',
@@ -66,8 +67,13 @@ export default {
   methods: {
     getData() {
       /* eslint-disable */
+      // axios
+      //   .get('url course')
+      //   .then((res) => {
+      //     this.course = res.data;
+      //   });
       const cours = coursesData.courses.filter(item => +item.id === +this.$route.params.id)[0];
-      const tasks = tasksData.tasks.filter(item => cours.tasks.includes(item.id));
+      const tasks= tasksData.tasks.filter(item => cours.tasks.includes(item.id));
 
       this.cours = {
         ...cours,

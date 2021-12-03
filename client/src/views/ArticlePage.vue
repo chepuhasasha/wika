@@ -19,7 +19,7 @@ Flex(
       button(@click='openProject') к проекту
       button(v-if='isAdmin' @click='edit = !edit') {{ edit ? 'Отмена ❌' : 'Редактировать ✨' }}
       button(v-if='edit' @click='save' title='Сохранить') 💾
-      button(v-if='!isRead' @click='read') Прочитано
+      button(v-if='getQuery.taskID' @click='read') Прочитано
       p(v-if='isRead') ✔️
     Flex.minicard(col gap='5px')
       .minicard_name 🙋‍♂️ {{ article.owner.name  }}
@@ -48,6 +48,7 @@ Flex(
 <script>
 import data from '@/data/articles';
 import users from '@/data/users';
+// import axios from 'axios';
 
 export default {
   name: 'ArticlePage',
@@ -65,6 +66,9 @@ export default {
     $route: 'getData',
   },
   computed: {
+    getQuery() {
+      return this.$route.query;
+    },
     user() {
       return this.$store.state.user;
     },
@@ -87,6 +91,11 @@ export default {
   methods: {
     getData() {
       /* eslint-disable */
+      // axios
+      //   .get('url article')
+      //   .then((res) => {
+      //     this.article = res.data;
+      //   });
       const article = data.articles.filter(item => +item.id === +this.$route.params.id)[0]
       this.article = {
         ...article
@@ -110,6 +119,9 @@ export default {
     },
     read() {
       this.$store.dispatch('readArticle', this.article.id);
+      this.$router.push({
+        path: `/course/${this.getQuery.courseID}`,
+      });
     }
   },
   mounted() {

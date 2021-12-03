@@ -45,6 +45,7 @@ import data from '@/data/projects';
 import articles from '@/data/articles';
 import tests from '@/data/tests';
 import courses from '@/data/courses';
+// import axios from 'axios';
 
 export default {
   name: 'ProjectPage',

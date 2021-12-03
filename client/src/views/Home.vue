@@ -10,11 +10,13 @@ Flex.home(width='100%' justify='center' height='100vh' align='center')
     .msg(v-if='!user') Только сначала авторизируйся.
     input.ask(v-if='!user' placeholder='Логин')
     input.ask(v-if='!user' type='password' placeholder='Пароль')
-    button(v-if='!user' @click='open("lk")') Войти
+    button(v-if='!user' @click='auth') Войти
     //- input.ask(v-on:keyup.enter="search" placeholder='Спроси у Вики' v-model='query')
 </template>
 
 <script>
+// import axios from 'axios';
+
 export default {
   name: 'Home',
   components: {
@@ -23,6 +25,8 @@ export default {
   data() {
     return {
       query: null,
+      login: null,
+      password: null,
     };
   },
   computed: {
@@ -36,6 +40,35 @@ export default {
     },
     search() {
       this.$router.push(`search/${this.query}`);
+    },
+    auth() {
+      // axios
+      //   .post('url auth', {
+      //     login: this.login,
+      //     password: this.password,
+      //   })
+      //   .then((res) => {
+      //     this.$store.dispatch('setUser', res.data)
+      //   });
+      this.$store.dispatch('setUser', {
+        id: 1,
+        name: 'Батуков С.',
+        specialization: 'Frontend Developer',
+        // role: 'Новый сотрудник',
+        role: 'Наставник',
+        bal: 0,
+        courses: [1, 2],
+        complite: {
+          articles: [1],
+          courses: [],
+          tests: [
+            // { id: 1, bal: 5 },
+          ],
+        },
+        medals: ['👋', '👩‍🚀', '🦸‍♂️'],
+        contacts: 'sashachepuha@gmail.com',
+      });
+      this.$router.push('lk');
     },
   },
 };

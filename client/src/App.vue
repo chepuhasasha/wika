@@ -3,10 +3,10 @@
     .bg
       img.rotate#circle1(:src='require("@/assets/circle.svg")')
       img.rotate#circle2(:src='require("@/assets/circle2.svg")')
-    Flex.nav(width='100%' padding='20px' align='center' justify='space-between')
+    Flex.nav(width='100%' padding='20px' align='center' justify='space-between' wrap)
       a.logo(@click='open("/")') Вика
-      Flex.links(width='max-content' gap='20px' padding='0' align='center')
-        a(v-if='getUser' @click='open("/base")') База знаний
+      Flex.links(width='max-content' gap='10px' padding='0' align='center' wrap)
+        button(v-if='getUser' @click='open("/base")') База знаний
         button(v-if='getUser' @click='open("/lk")') {{ getUser.name }}
     router-view.content
 </template>
@@ -26,26 +26,6 @@ export default {
     getUser() {
       return this.$store.state.user;
     },
-  },
-  mounted() {
-    this.$store.dispatch('setUser', {
-      id: 1,
-      name: 'Батуков С.',
-      specialization: 'Frontend Developer',
-      // role: 'Новый сотрудник',
-      role: 'Наставник',
-      bal: 5,
-      courses: [1, 2],
-      complite: {
-        articles: [1],
-        courses: [],
-        tests: [
-          // { id: 1, bal: 5 },
-        ],
-      },
-      medals: ['👋', '👩‍🚀', '🦸‍♂️'],
-      contacts: 'sashachepuha@gmail.com',
-    });
   },
 };
 </script>
