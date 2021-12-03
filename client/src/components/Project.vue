@@ -7,7 +7,7 @@ Flex.project(col width='100%' gap='0')
       span.project_user Статей: {{ project.articles.length }}
       span.project_user Тестов: {{ project.tests.length }}
       span.project_user Курсов: {{ project.courses.length }}
-    Flex(padding='0' gap='5px' wrap)
+    Flex(padding='0' gap='5px' wrap justify='space-between')
       button.project_btn(@click='openProject(project.id)') открыть
       button(v-if='isAdmin' @click='remove') Удалить
 </template>

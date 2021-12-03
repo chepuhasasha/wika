@@ -2,7 +2,7 @@
 Flex.test_item(col width='100%')
   .test_item_title {{ test.title }}
   .test_item_desc {{ test.description }}
-  Flex(padding='0' gap='5px' wrap width='100%')
+  Flex(padding='0' gap='5px' wrap width='100%' justify='space-between')
     button(@click='openTest(test.id)') Пройти
     button(v-if='isAdmin' @click='remove') Удалить
 </template>

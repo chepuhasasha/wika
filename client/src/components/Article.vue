@@ -2,7 +2,7 @@
 Flex.article_item(col width='100%')
   .article_item_title {{ article.title }}
   .article_item_desc {{ article.description }}
-  Flex(padding='0' gap='5px' wrap width='100%')
+  Flex(padding='0' gap='5px' wrap width='100%' justify='space-between')
     button(@click='openArticle(article.id)') Читать
     button(v-if='isAdmin' @click='remove') Удалить
 </template>
