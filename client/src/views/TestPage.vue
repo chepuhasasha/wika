@@ -59,6 +59,7 @@ Flex(
       v-for='(slide, i) in test.slides'
       :key='i'
       :is='slide.type'
+      :edit='edit'
       :slide='slide.props'
       @check='updateState'
     )
@@ -189,9 +190,11 @@ export default {
       //     });
       //   });
       this.$store.dispatch('setLoad', false);
-      this.$router.push({
-        path: `/course/${this.getQuery.courseID}`,
-      });
+      if(this.getQuery.courseID) {
+        this.$router.push({
+          path: `/course/${this.getQuery.courseID}`,
+        });
+      }
     },
   },
   mounted() {
