@@ -13,6 +13,6 @@ RUN npm install
 COPY ../api/* .
 
 # собираем приложение для production с минификацией
-RUN npm run build
+# RUN npm run build
 
-CMD [ "node", "index.js" ]
+CMD [ "npm", "run" "prod" ]
