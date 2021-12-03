@@ -15,7 +15,7 @@ Flex.project_page(col width='100%' padding='40px 20px' v-if='project')
       @click='flag = "Курс"'
       :class='{active: flag === "Курс"}'
     ) Курсы {{ getCourses.length }}
-    button(v-if='isAdmin' @click='make') Создать ➕
+    button(v-if='isAdmin && !edit' @click='make') Создать ➕
   Flex.card(col v-if='edit' width='100%')
     h1 {{ flag }}
     input.header(placeholder='Название' v-model='search')
