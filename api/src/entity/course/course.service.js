@@ -1,10 +1,25 @@
 export class CourseService {
-  constructor(courseRepositoryInstance){
+  constructor(courseRepositoryInstance, projectRepositoryInstance, taskRepositoryInstance){
     this.repository = courseRepositoryInstance;
+    this.repository.model.belongsTo(projectRepositoryInstance.model, {
+      as: 'project',
+      targetKey: 'id',
+      foreignKey: 'id'
+    });
+    this.repository.model.hasMany(taskRepositoryInstance.model, {
+      as: 'tasks',
+      targetKey: 'tasks',
+      foreignKey: 'id'
+    });
   }
 
   async findById(id){
-    return await this.repository.model.findByPk(id);
+    return await this.repository.model.findOne({
+      where: {
+        id
+      },
+      include: ['tasks','project']
+    });
   }
 
   async create(obj){

@@ -39,11 +39,11 @@ const testRepositoryInstance = new TestRepository(dbService, loggerService);
 
 // Init entity services
 const userService = new UserService(userRepositoryInstance);
-const projectService = new ProjectService(projectRepositoryInstance);
-const courseService = new CourseService(courseRepositoryInstance);
-const articleService = new ArticleService(articleRepositoryInstance);
-const taskService = new TaskService(taskRepositoryInstance);
-const testService = new TestService(testRepositoryInstance);
+const projectService = new ProjectService(projectRepositoryInstance, articleRepositoryInstance, courseRepositoryInstance, testRepositoryInstance);
+const courseService = new CourseService(courseRepositoryInstance, projectRepositoryInstance, taskRepositoryInstance);
+const articleService = new ArticleService(articleRepositoryInstance, projectRepositoryInstance);
+const taskService = new TaskService(taskRepositoryInstance, courseRepositoryInstance);
+const testService = new TestService(testRepositoryInstance, projectRepositoryInstance);
 
 
 // Init entiry controllers
@@ -53,6 +53,7 @@ const courseController = new CourseController(courseService);
 const articleController = new ArticleController(articleService);
 const taskController = new TaskController(taskService);
 const testController = new TestController(testService);
+
 
 
 const api = new App(
@@ -65,7 +66,9 @@ const api = new App(
   testController,
 );
 
+
 await api.init();
+
 
 const apiServer = new Server(api.app, process.env.PORT || 3000);
 apiServer.start();

@@ -1,10 +1,20 @@
 export class ArticleService {
-  constructor(articleRepositoryInstance){
+  constructor(articleRepositoryInstance, projectRepositoryInstance){
     this.repository = articleRepositoryInstance;
+    this.repository.model.belongsTo(projectRepositoryInstance.model, {
+      as: 'project',
+      targetKey: 'id',
+      foreignKey: 'id'
+    });
   }
 
   async findById(id){
-    return await this.repository.model.findByPk(id);
+    return await this.repository.model.findOne({
+      where: {
+        id
+      },
+      include: 'project'
+    });
   }
 
   async create(obj){
