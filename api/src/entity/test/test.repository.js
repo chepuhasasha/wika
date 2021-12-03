@@ -1,10 +1,10 @@
 import sequelize from 'sequelize';
 
 
-export class ArticleRepository {
+export class TestRepository {
   constructor(dbInstance, loggerInstance){
     this.logger = loggerInstance;
-    this.model = dbInstance.db.define('Article', {
+    this.model = dbInstance.db.define('Test', {
       title: {
         type: sequelize.DataTypes.STRING,
         allowNull: false,
@@ -15,34 +15,29 @@ export class ArticleRepository {
         allowNull: true,
       },
 
-      likes: {
+      life: {
         type: sequelize.DataTypes.INTEGER,
-        default: 0,
+        defaultValue: 5,
       },
 
-      dislikes: {
-        type: sequelize.DataTypes.INTEGER,
-        defaul: 0,
-      },
-
-      elements: {
+      slides: {
         type: sequelize.DataTypes.JSON,
         allowNull: true
       }
-      // owner
       // project
+      // owner
     }, {
-      modelName: 'article',
-      tablename: 'articles',
+      modelName: 'test',
+      tablename: 'tests',
       timestamps: false,
     });
 
     this.model.sync({ alter: true })
       .then(() => {
-        this.logger.info('Table <Article> synchronized successfully')
+        this.logger.info('Table <Test> synchronized successfully')
       })
       .catch(err => {
-        this.logger.error(`Table <Article> synchronized with error: ${err}`)
+        this.logger.error(`Table <Test> synchronized with error: ${err}`)
       })
   }
 }
