@@ -15,15 +15,12 @@ import { CourseController } from "./entity/course/course.controller.js";
 import { ArticleRepository } from "./entity/article/article.repository.js";
 import { ArticleService } from "./entity/article/article.service.js";
 import { ArticleController } from "./entity/article/article.controller.js";
-
-// import { TaskRepository } from "./entity/task/task.repository.js";
-// import { TaskService } from "./entity/task/task.service.js";
+import { TaskRepository } from "./entity/task/task.repository.js";
+import { TaskService } from "./entity/task/task.service.js";
 import { TaskController } from "./entity/task/task.controller.js";
-
-// import { TestRepository } from "./entity/test/test.repository.js";
-// import { TestRervice } from "./entity/test/test.service.js";
+import { TestRepository } from "./entity/test/test.repository.js";
+import { TestService } from "./entity/test/test.service.js";
 import { TestController } from "./entity/test/test.controller.js";
-
 
 
 // Init outer service
@@ -36,6 +33,8 @@ const userRepositoryInstance = new UserRepository(dbService, loggerService);
 const projectRepositoryInstance = new ProjectRepository(dbService, loggerService);
 const courseRepositoryInstance = new CourseRepository(dbService, loggerService);
 const articleRepositoryInstance = new ArticleRepository(dbService, loggerService);
+const taskRepositoryInstance = new TaskRepository(dbService, loggerService);
+const testRepositoryInstance = new TestRepository(dbService, loggerService);
 
 
 // Init entity services
@@ -43,6 +42,8 @@ const userService = new UserService(userRepositoryInstance);
 const projectService = new ProjectService(projectRepositoryInstance);
 const courseService = new CourseService(courseRepositoryInstance);
 const articleService = new ArticleService(articleRepositoryInstance);
+const taskService = new TaskService(taskRepositoryInstance);
+const testService = new TestService(testRepositoryInstance);
 
 
 // Init entiry controllers
@@ -50,8 +51,8 @@ const userController = new UserController(userService);
 const projectController = new ProjectController(projectService);
 const courseController = new CourseController(courseService);
 const articleController = new ArticleController(articleService);
-const taskController = new TaskController();
-const testController = new TestController();
+const taskController = new TaskController(taskService);
+const testController = new TestController(testService);
 
 
 const api = new App(
