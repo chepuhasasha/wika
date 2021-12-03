@@ -68,9 +68,9 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const user = store.state.user;
-  const requireAuth = to.matched.some(record => record.meta.auth);
+  // const requireAuth = to.matched.some(record => record.meta.auth);
 
-  if (requireAuth && !user) {
+  if (to.meta.auth && !user) {
     next('/');
   } else {
     next();
