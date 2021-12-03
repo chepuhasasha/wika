@@ -2,7 +2,7 @@
 Flex.test_item(col width='100%' :class='getClass')
   .test_item_title {{ course.title }}
   .test_item_desc {{ course.description }}
-  Flex(width='100%' padding='0' justify='space-between')
+  Flex(width='100%' padding='0' justify='space-between' wrap)
     button(@click='openTest(course.id)') Открыть
     .msg(v-if='getPriority === 1') ❗️ Это супер важно пройти 🤯 ❗️
 </template>
