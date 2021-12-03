@@ -76,9 +76,9 @@ export default {
   &_1 {
     // background: #000 !important;
     animation: 2s infinite alternate important linear;
-    border: 2px solid rgb(255, 59, 24);
+    border: 2px solid rgb(255, 59, 24) !important;
     &:hover {
-      border: 2px solid rgb(255, 59, 24);
+      border: 2px solid rgb(255, 59, 24) !important;
     }
     // box-shadow: 0 0 50px -20px red;
   }
