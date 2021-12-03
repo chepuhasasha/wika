@@ -74,6 +74,8 @@ export default {
     tag: function(val) {
       if(this.configMap[val]) {
         this.config = this.configMap[val];
+      } else {
+        this.config = null;
       }
     },
   },
