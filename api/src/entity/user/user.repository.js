@@ -43,7 +43,7 @@ export class UserRepository {
         this.logger.info('Table <User> synchronized successfully')
       })
       .catch(err => {
-        this.logger.err(`Table <User> synchronized with error: ${err}`)
+        this.logger.error(`Table <User> synchronized with error: ${err}`)
       })
   }
 }
