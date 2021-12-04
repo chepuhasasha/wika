@@ -1,15 +1,31 @@
 export class TaskService {
-  constructor(taskRepositoryInstance, courseRepositoryInstance){
+  constructor(taskRepositoryInstance, courseRepositoryInstance, testRepositoryInstance, articleRepositoryInstance){
     this.repository = taskRepositoryInstance;
-    this.repository.model.belongsTo(courseRepositoryInstance.model, {
-      as: 'course',
-      targetKey: 'id',
-      foreignKey: 'id'
-    });
+    // this.repository.model.belongsTo(courseRepositoryInstance.model, {
+    //   as: 'course',
+    //   targetKey: 'id',
+    //   foreignKey: 'course_id'
+    // });
+
+    // this.repository.model.hasOne(testRepositoryInstance.model, {
+    //   as: 'test',
+    //   targetKey: 'id',
+    //   foreignKey: 'task_id'
+    // });
+
+    // this.repository.model.hasOne(articleRepositoryInstance.model, {
+    //   as: 'article',
+    //   targetKey: 'id',
+    //   foreignKey: 'task_id'
+    // });
   }
 
   async findById(id){
-    return await this.repository.model.findByPk(id);
+    return await this.repository.model.findOne({
+      where: {
+        id
+      }
+    });
   }
 
   async create(obj){

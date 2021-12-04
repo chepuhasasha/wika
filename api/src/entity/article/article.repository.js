@@ -30,15 +30,11 @@ export class ArticleRepository {
         allowNull: true
       },
 
-      // project: {
-      //   type: sequelize.DataTypes.INTEGER,
-      //   references: {
-      //     model: 'Projects',
-      //     key: 'id'
-      //   }
-      // }
+      project_id: {
+        type: sequelize.DataTypes.INTEGER,
+        allowNull: true,
+      },
 
-      // project
     }, {
       modelName: 'article',
       tablename: 'articles',

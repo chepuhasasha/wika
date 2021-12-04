@@ -1,21 +1,24 @@
 export class ProjectService {
   constructor(projectRepositoryInstance,articleRepositoryInstance, courseRepositoryInstance, testRepositoryInstance){
     this.repository = projectRepositoryInstance;
-    this.repository.model.hasMany(articleRepositoryInstance.model, {
-      as: 'articles',
-      targetKey: 'project',
-      foreignKey: 'id'
-    });
-    this.repository.model.hasMany(courseRepositoryInstance.model, {
-      as: 'courses',
-      targetKey: 'project',
-      foreignKey: 'id'
-    });
-    this.repository.model.hasMany(testRepositoryInstance.model, {
-      as: 'tests',
-      targetKey: 'project',
-      foreignKey: 'id'
-    });
+    // this.repository.model.hasMany(courseRepositoryInstance.model, {
+    //   as: 'courses',
+    //   targetKey: 'id',
+    //   foreignKey: 'project_id',
+    //   onDelete: 'SET NULL',
+    // });
+    // this.repository.model.hasMany(articleRepositoryInstance.model, {
+    //   as: 'articles',
+    //   targetKey: 'id',
+    //   foreignKey: 'project_id',
+    //   onDelete: 'SET NULL',
+    // });
+    // this.repository.model.hasMany(testRepositoryInstance.model, {
+    //   as: 'tests',
+    //   targetKey: 'id',
+    //   foreignKey: 'project_id',
+    //   onDelete: 'SET NULL',
+    // });
   }
 
   async findById(id){
@@ -23,7 +26,7 @@ export class ProjectService {
       where: {
         id: id
       },
-      include: ['articles','courses','tests']
+      // include: ['courses']
     });
   };
 

@@ -1,19 +1,21 @@
 export class TestService {
-  constructor(testRepositoryInstance, projectRepositoryInstance){
+  constructor(testRepositoryInstance, projectRepositoryInstance, taskRepositoryInstance){
     this.repository = testRepositoryInstance;
-    this.repository.model.belongsTo(projectRepositoryInstance.model, {
-      as: 'project',
-      targetKey: 'id',
-      foreignKey: 'id'
-    });
+    // this.repository.model.belongsTo(projectRepositoryInstance.model, {
+    //   as: 'project',
+    //   // targetKey: 'id',
+    //   // sourceKey: 'project_id'
+    // });
+    // this.repository.model.belongsTo(taskRepositoryInstance.model, {
+    //   as: 'task',
+    // });
   }
 
   async findById(id){
     return await this.repository.model.findOne({
       where: {
         id
-      },
-      include: 'project'
+      }
     });
   }
 

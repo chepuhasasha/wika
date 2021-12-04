@@ -23,9 +23,11 @@ export class TestRepository {
       slides: {
         type: sequelize.DataTypes.JSON,
         allowNull: true
-      }
-      // project
-      // owner
+      },
+      project_id: {
+        type: sequelize.DataTypes.INTEGER,
+        allowNull: true,
+      },
     }, {
       modelName: 'test',
       tablename: 'tests',

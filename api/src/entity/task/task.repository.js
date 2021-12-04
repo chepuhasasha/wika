@@ -29,8 +29,16 @@ export class TaskRepository {
         type: sequelize.DataTypes.DATE,
         allowNull: true
       },
-      // article
-      // test
+
+      article_id: {
+        type: sequelize.DataTypes.INTEGER,
+        allowNull: true
+      },
+
+      test_id: {
+        type: sequelize.DataTypes.INTEGER,
+        allowNull: true
+      },
     }, {
       modelName: 'task',
       tablename: 'tasks',

@@ -41,9 +41,9 @@ const testRepositoryInstance = new TestRepository(dbService, loggerService);
 const userService = new UserService(userRepositoryInstance);
 const projectService = new ProjectService(projectRepositoryInstance, articleRepositoryInstance, courseRepositoryInstance, testRepositoryInstance);
 const courseService = new CourseService(courseRepositoryInstance, projectRepositoryInstance, taskRepositoryInstance);
-const articleService = new ArticleService(articleRepositoryInstance, projectRepositoryInstance);
-const taskService = new TaskService(taskRepositoryInstance, courseRepositoryInstance);
-const testService = new TestService(testRepositoryInstance, projectRepositoryInstance);
+const articleService = new ArticleService(articleRepositoryInstance, projectRepositoryInstance, taskRepositoryInstance);
+const taskService = new TaskService(taskRepositoryInstance, courseRepositoryInstance, testRepositoryInstance, articleRepositoryInstance);
+const testService = new TestService(testRepositoryInstance, projectRepositoryInstance, taskRepositoryInstance);
 
 
 // Init entiry controllers

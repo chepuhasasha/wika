@@ -15,11 +15,6 @@ export class ProjectRepository {
         allowNull: true,
       },
 
-
-      // articles
-      // tests
-      // courses
-
     }, {
       modelName: 'project',
       tablename: 'projects',

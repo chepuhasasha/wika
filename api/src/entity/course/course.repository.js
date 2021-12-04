@@ -14,8 +14,11 @@ export class CourseRepository {
         type: sequelize.DataTypes.STRING,
         allowNull: true,
       },
-      // tasks
-      // project
+
+      project_id: {
+        type: sequelize.DataTypes.INTEGER,
+        allowNull: true,
+      },
     }, {
       modelName: 'course',
       tablename: 'courses',

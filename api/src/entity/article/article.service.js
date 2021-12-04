@@ -1,19 +1,22 @@
 export class ArticleService {
-  constructor(articleRepositoryInstance, projectRepositoryInstance){
+  constructor(articleRepositoryInstance, projectRepositoryInstance, taskRepositoryInstance){
     this.repository = articleRepositoryInstance;
-    this.repository.model.belongsTo(projectRepositoryInstance.model, {
-      as: 'project',
-      targetKey: 'id',
-      foreignKey: 'id'
-    });
+    // this.repository.model.belongsTo(projectRepositoryInstance.model, {
+    //   as: 'project',
+    //   // targetKey: 'id',
+    //   // primaryKey: 'id'
+    //   // sourceKey: 'project_id'
+    // });
+    // this.repository.model.belongsTo(taskRepositoryInstance.model, {
+    //   as: 'task',
+    // });
   }
 
   async findById(id){
     return await this.repository.model.findOne({
       where: {
         id
-      },
-      include: 'project'
+      }
     });
   }
 
