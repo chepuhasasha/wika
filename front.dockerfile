@@ -7,13 +7,13 @@ RUN npm install -g http-server
 WORKDIR /app
 
 # копируем оба 'package.json' и 'package-lock.json' (если есть)
-COPY ./code/client/package*.json ./
+COPY ./client/package*.json ./
 
 # устанавливаем зависимости проекта
 RUN npm install
 
 # копируем файлы и каталоги проекта в текущий рабочий каталог (т.е. в каталог 'app')
-COPY ./code/client/ .
+COPY ./client/ .
 
 # собираем приложение для production с минификацией
 RUN npm run build
