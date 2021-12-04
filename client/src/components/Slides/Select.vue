@@ -13,7 +13,7 @@ Flex.card(col width='100%' v-if='slide')
       v-model='answer[key]'
     )
     label {{ key }}
-    button(@click='remove(key)') 🗑️
+    button(v-if='edit' @click='remove(key)') 🗑️
   Flex.minicard(
     align='center'
     width='100%'

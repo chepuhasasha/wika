@@ -4,18 +4,18 @@ Flex(col width='100%' padding='0' :style='getStyle' v-if='element')
     :is='getTag(tag)'
     v-bind='config'
   ) {{ content }}
-  Flex(v-if='edit' col width='100%' gap='5px')
-    span Тип:
-    select(v-model='tag')
-      option(
-        v-for='(el, i) in getTagList'
-        :key='i'
-      ) {{ el }}
-    span Контент:
-    textarea(v-model='content')
-    span(v-if='config') Пораметры:
-    Props(v-if='config' :tag='tag' :config='config')
-    button(@click='deleteEl' title='Удалить') 🗑️
+  //- Flex(v-if='edit' col width='100%' gap='5px')
+  //-   span Тип:
+  //-   select(v-model='tag')
+  //-     option(
+  //-       v-for='(el, i) in getTagList'
+  //-       :key='i'
+  //-     ) {{ el }}
+  //-   span Контент:
+  //-   textarea(v-model='content')
+  //-   span(v-if='config') Пораметры:
+  //-   Props(v-if='config' :tag='tag' :config='config')
+  //-   button(@click='deleteEl' title='Удалить') 🗑️
 </template>
 
 <script>
@@ -25,8 +25,7 @@ export default {
     Flex: () => import('@/components/Utils/Flex.vue'),
     Message: () => import('@/components/Elements/Message.vue'),
     Punct: () => import('@/components/Elements/Punct.vue'),
-    Link: () => import('@/components/Elements/Link.vue'),
-    Props: () => import('@/components/Elements/Props.vue'),
+    // Link: () => import('@/components/Elements/Link.vue'),
   },
   props: {
     tag: {
@@ -60,7 +59,7 @@ export default {
         // codepen: 'iframe',
         msg: 'Message',
         punct: 'Punct',
-        link: 'Link',
+        // link: 'Link',
       },
       configMap: {
         link: {
