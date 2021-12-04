@@ -25,8 +25,7 @@ export default {
     Flex: () => import('@/components/Utils/Flex.vue'),
     Message: () => import('@/components/Elements/Message.vue'),
     Punct: () => import('@/components/Elements/Punct.vue'),
-    Link: () => import('@/components/Elements/Link.vue'),
-    Props: () => import('@/components/Elements/Props.vue'),
+    // Link: () => import('@/components/Elements/Link.vue'),
   },
   props: {
     tag: {
@@ -60,7 +59,7 @@ export default {
         // codepen: 'iframe',
         msg: 'Message',
         punct: 'Punct',
-        link: 'Link',
+        // link: 'Link',
       },
       configMap: {
         link: {

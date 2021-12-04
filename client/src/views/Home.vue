@@ -62,7 +62,7 @@ export default {
         bal: 0,
         courses: [1, 2],
         complite: {
-          articles: [1],
+          articles: [],
           courses: [],
           tests: [
             // { id: 1, bal: 5 },

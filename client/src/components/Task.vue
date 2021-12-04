@@ -5,14 +5,14 @@ Flex.test_item(col width='100%' :class='{complite: status}')
   .test_item_desc(v-if='!status') {{ task.description }}
   input(v-if='edit' placeholder='Описание' v-model='task.description')
   button(v-if='!status && !edit' @click='open') Приступить
-  span Укажите ID статьи ИЛИ теста
+  span(v-if='edit') Укажите ID статьи ИЛИ теста
   Flex.minicard(
     align='center'
     width='100%'
     v-if='edit'
   )
-    input(v-if='edit' placeholder='Тест' v-model='task.test')
-    input(v-if='edit' placeholder='Статья' v-model='task.article')
+    input(v-if='edit' type='number' placeholder='Тест' v-model='task.test')
+    input(v-if='edit' type='number' placeholder='Статья' v-model='task.article')
 </template>
 
 <script>

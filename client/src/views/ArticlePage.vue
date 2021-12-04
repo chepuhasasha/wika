@@ -60,8 +60,13 @@ Flex(
           ) {{ el }}
         span Контент:
         textarea(v-model='el.content')
-        span(v-if='el.config') Пораметры:
-        Props(v-if='el.config' :tag='el.type' :config='el.config')
+        //- span(v-if='el.props') Пораметры:
+        //- Flex(v-if='el.config' col width='100%' gap='5px' padding='0')
+        //-   p(
+        //-     v-for='(p, i) in el.config'
+        //-     :key='i'
+        //-   )
+        //-     p {{ i }}
         button(@click='deleteEl(el)' title='Удалить') 🗑️
 
     button(v-if='edit' @click='addEl' title='Добавить блок') add +
@@ -92,7 +97,7 @@ export default {
         // codepen: 'iframe',
         msg: 'Message',
         punct: 'Punct',
-        link: 'Link',
+        // link: 'Link',
       },
       configMap: {
         link: {
@@ -155,8 +160,8 @@ export default {
       const old = JSON.parse(str)
       console.log(old.elements)
       old.push({
-        type: 'p',
-        content: 'Текст',
+        type: 'msg',
+        content: null,
       });
       this.$delete(this.article, 'elements')
       this.$set(this.article, 'elements', old)
